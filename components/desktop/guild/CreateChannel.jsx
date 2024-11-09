@@ -1,0 +1,134 @@
+import React, { memo, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCreateChannelModal } from '@redux/modules/guild';
+import { createCategoryChannel } from '@redux/lib/guild';
+import style from 'css/desktop.module.css';
+
+import Popup from 'components/public/Popup';
+
+const CreateChannel = () => {
+    const dispatch = useDispatch();
+    const isModal = useSelector(state => state.guild.is_create_channel_modal.category_id);
+
+    const [type, setType] = useState(0);
+    const [name, setName] = useState('');
+
+    if (isModal) {
+        return (
+            <Popup onClose={() => dispatch(setCreateChannelModal({ category_id: null }))}>
+                <div className={style.title}>
+                    <h3>채널 만들기</h3>
+                </div>
+
+                <div className={style.form}>
+                    <div className={style.item}>
+                        <div className={style.tit}>
+                            <span>채널 유형</span>
+                        </div>
+                        <div className={style.radio_wrap}>
+                            <div className={style.radio_box}>
+                                <input type="radio" id="board_table" name="channel_type" value={type} onChange={e => setType(0)} defaultChecked />
+                                <label htmlFor="board_table">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                                        <g id="그룹_22107" data-name="그룹 22107" transform="translate(2041 4552)">
+                                            <rect id="사각형_29338" data-name="사각형 29338" width="20" height="20" transform="translate(-2041 -4552)" fill="#fff" opacity="0"/>
+                                            <g id="그룹_22106" data-name="그룹 22106" transform="translate(-2040 -4552)" opacity="1">
+                                                <path id="패스_47957" data-name="패스 47957" d="M9.78,17.49l3.78-3.78,1.94-1.939.73.729-5.72,5.72-.92.19Zm5.06-6.83-1.8,1.8-1.25,1.25L8.62,16.88l-.37,1.87L8.2,19,8,20l1-.2,2.12-.42L18,12.5l-.66-.66-.59-.59L15.5,10Z"/>
+                                                <g id="그룹_83" data-name="그룹 83">
+                                                    <g id="그룹_82" data-name="그룹 82">
+                                                        <path id="패스_47958" data-name="패스 47958" d="M15,0H3A3,3,0,0,0,0,3V17a3,3,0,0,0,3,3H5.96l.08-.39.17-.86H3A1.758,1.758,0,0,1,1.25,17V3A1.758,1.758,0,0,1,3,1.25H15A1.758,1.758,0,0,1,16.75,3V8.43l.16.16.67.66.42.42V3a3,3,0,0,0-3-3"/>
+                                                        <path id="패스_47959" data-name="패스 47959" d="M3.5,13.71H8.96l1.25-1.25H3.5Z"/>
+                                                        <path id="패스_47960" data-name="패스 47960" d="M3.5,9.71h9.46l.46-.46.67-.66.13-.13H3.5Z"/>
+                                                        <rect className={style.line} id="사각형_28940" data-name="사각형 28940" width="11" height="1.25" transform="translate(3.5 4.462)"/>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    게시판
+                                </label>
+                            </div>
+                            <div className={style.radio_box}>
+                                <input type="radio" id="board_gallery" name="channel_type" value={type} onChange={e => setType(1)}/>
+                                <label htmlFor="board_gallery">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink" width="20" height="18" viewBox="0 0 20 18">
+                                        <g id="그룹_20421" data-name="그룹 20421" opacity="1">
+                                            <g id="그룹_20394" data-name="그룹 20394">
+                                                <path id="패스_47964" data-name="패스 47964" d="M17,1.25A1.752,1.752,0,0,1,18.75,3V15A1.752,1.752,0,0,1,17,16.75H3A1.752,1.752,0,0,1,1.25,15V3A1.752,1.752,0,0,1,3,1.25ZM17,0H3A3,3,0,0,0,0,3V15a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V3a3,3,0,0,0-3-3"/>
+                                                <path id="패스_47965" data-name="패스 47965" d="M5,5.25a.417.417,0,1,1-.417.417A.417.417,0,0,1,5,5.25M5,4A1.667,1.667,0,1,0,6.667,5.667,1.667,1.667,0,0,0,5,4"/>
+                                                <path id="패스_47966" data-name="패스 47966" d="M11.668,7.751l3.749,5H7.922l.9-1.2ZM6.251,10.9l.632.723.989,1.129H4.63L6.251,10.9m5.416-5.231L7.823,10.8,6.25,9,3.334,12.334V14H16.667V12.334Z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    앨범
+                                </label>
+                            </div>
+                            <div className={style.radio_box}>
+                                <input type="radio" id="link" name="channel_type" value={type} onChange={e => setType(2)}/>
+                                <label htmlFor="link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 18 20">
+                                        <g id="그룹_20432" data-name="그룹 20432" opacity="1">
+                                            <g id="그룹_20432-2" data-name="그룹 20432">
+                                                <path id="패스_47991" data-name="패스 47991" d="M16.875,12v5A1.676,1.676,0,0,1,15.3,18.75H2.7A1.676,1.676,0,0,1,1.125,17V3A1.676,1.676,0,0,1,2.7,1.25H7.2V0H2.7A2.862,2.862,0,0,0,0,3V17a2.862,2.862,0,0,0,2.7,3H15.3A2.862,2.862,0,0,0,18,17V12Z"/>
+                                                <path id="패스_47992" data-name="패스 47992" d="M11.756,0V1.25h5.283L9.56,9.56l.792.88,7.479-8.31V8h1.125V0Z" transform="translate(-0.956)"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    외부 링크
+                                </label>
+                            </div>
+                            <div className={style.radio_box}>
+                                <input type="radio" id="iframe" name="channel_type" value={type} onChange={e => setType(3)}/>
+                                <label htmlFor="iframe">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                                        <g id="그룹_20431" data-name="그룹 20431" opacity="1">
+                                            <g id="그룹_20431-2" data-name="그룹 20431">
+                                                <path id="패스_47987" data-name="패스 47987" d="M17,0H3A3,3,0,0,0,0,3V17a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V3a3,3,0,0,0-3-3m1.75,17A1.752,1.752,0,0,1,17,18.75H3A1.752,1.752,0,0,1,1.25,17V5.25h17.5ZM1.25,4V3A1.752,1.752,0,0,1,3,1.25H17A1.752,1.752,0,0,1,18.75,3V4Z"/>
+                                                <path id="패스_47988" data-name="패스 47988" d="M12.313,14.883l.913.913.456-.455,2.258-2.258.458-.458-.456-.456L13.683,9.911l-.458-.457-.913.913.456.456,1.8,1.8-1.8,1.8Z"/>
+                                                <path id="패스_47989" data-name="패스 47989" d="M6.317,15.339l.458.458.913-.914-.456-.455-1.8-1.8,1.8-1.8.456-.456-.913-.913-.456.456L4.061,12.168l-.458.457.456.456Z"/>
+                                                <path id="패스_47990" data-name="패스 47990" d="M9.327,17.008l2.581-8.387L12.1,8l-1.234-.379-.189.617L8.093,16.629l-.189.617,1.233.379Z"/>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    iframe
+                                </label>
+                            </div>
+                            <div className={[style.radio_box, style.col2].join(' ')}>
+                                <input type="radio" id="store" name="channel_type" value={type} onChange={e => setType(4)}/>
+                                <label htmlFor="store">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                                        <g id="그룹_22108" data-name="그룹 22108" transform="translate(2048 4521)">
+                                            <rect id="사각형_29339" data-name="사각형 29339" width="20" height="20" transform="translate(-2048 -4521)" fill="#fff" opacity="0"/>
+                                            <path id="패스_48092" data-name="패스 48092" d="M6.25,3.75V5h5V3.75a2.5,2.5,0,0,0-5,0ZM5,6.25H1.875a.627.627,0,0,0-.625.625V16.25a2.5,2.5,0,0,0,2.5,2.5h10a2.5,2.5,0,0,0,2.5-2.5V6.875a.627.627,0,0,0-.625-.625H12.5V9.375a.625.625,0,0,1-1.25,0V6.25h-5V9.375a.625.625,0,0,1-1.25,0ZM5,5V3.75a3.75,3.75,0,0,1,7.5,0V5h3.125A1.875,1.875,0,0,1,17.5,6.875V16.25A3.751,3.751,0,0,1,13.75,20h-10A3.751,3.751,0,0,1,0,16.25V6.875A1.875,1.875,0,0,1,1.875,5Z" transform="translate(-2047 -4521)" opacity="1"/>
+                                        </g>
+                                    </svg>
+                                    스토어
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={style.item}>
+                        <div className={style.tit}>
+                            <span>채널명</span>
+                            <p>최대 10글자</p>
+                        </div>
+                        <div className={style.input_box}>
+                            <input type="text" value={name} onChange={e => setName(e.target.value)} maxLength={10}/>
+                        </div>
+                    </div>
+
+                    <div className={style.btn_wrap}>
+                        <button type="button" className={[style.btn, style.btn_primary].join(' ')}
+                                onClick={() => dispatch(createCategoryChannel({category_id: isModal, type, name}))}>만들기
+                        </button>
+                    </div>
+                </div>
+            </Popup>
+        );
+    } else {
+        return null;
+    }
+}
+
+export default memo(CreateChannel);

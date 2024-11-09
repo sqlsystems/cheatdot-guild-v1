@@ -2,11 +2,20 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"],
       "@desktop/*": ["components/desktop/*"],
       "@mobile/*": ["components/mobile/*"],
-      "@redux/*": ["redux/*"]
+      "@redux/*": ["redux/*"],
+      "@guild/*": ["components/desktop/guild/*"]
     }
-  }
+  },
+  "include": [
+    "components",
+    "pages",
+    "css",
+    "redux",
+    "api",
+    "plugin",
+    "hooks"
+  ]
 }

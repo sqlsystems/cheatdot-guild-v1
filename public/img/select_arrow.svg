@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="8" height="5.161" viewBox="0 0 8 5.161">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #a6a8ad;
+      }
+    </style>
+  </defs>
+  <path id="caret-down-fill" class="cls-1" d="M5.683,8.926,2.374,5.144A.69.69,0,0,1,2.893,4H9.511a.69.69,0,0,1,.52,1.145L6.722,8.925a.69.69,0,0,1-1.039,0Z" transform="translate(-2.202 -4)"/>
+</svg>
