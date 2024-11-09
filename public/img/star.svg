@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffcf74;
+        stroke: #ffcf74;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="star-svgrepo-com" class="cls-1" d="M14.349,8.515,12.5,5,10.651,8.515a1.842,1.842,0,0,1-.552.65A1.866,1.866,0,0,1,9.31,9.5l-3.81.747,2.66,3.181A1.851,1.851,0,0,1,8.63,14.9L8.124,19l3.508-1.7a2,2,0,0,1,.868-.2,1.762,1.762,0,0,1,.81.2l3.59,1.6-.506-4.051a1.851,1.851,0,0,1,.471-1.468L19.5,10.247,15.69,9.5a1.866,1.866,0,0,1-.79-.335A1.842,1.842,0,0,1,14.349,8.515Z" transform="translate(-5 -4.5)"/>
+</svg>

@@ -1,0 +1,103 @@
+/* 초기화 */
+
+html {height:100%;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;-ms-text-size-adjust:none}
+body {height:100%;color:var(--gray-99);letter-spacing:-.1px;background-color:var(--gray-20);margin:0;padding:0 !important;font-size:14px;font-family:'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;word-break:keep-all}
+html, h1, h2, h3, h4, h5, h6, form, fieldset, img {margin:0;padding:0;border:0}
+h1, h2, h3, h4, h5, h6 {font-weight:600;font-family:'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+h2 {font-size:20px}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display:block}
+ul,li,dl,dt,dd {margin:0;padding:0;list-style:none}
+label, input, button, select, img {vertical-align:middle}
+input, button, textarea, select {color:var(--gray-99);font-size:14px;line-height:1.5;margin:0;padding:0;outline:0;resize:none;-webkit-appearance:none;-moz-appearance:none;font-family:'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+input[type="submit"] {cursor:pointer}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {-webkit-appearance:none;margin:0}
+figure {margin:0}
+button {cursor:pointer;background:transparent;border:none;outline:0}
+button:disabled {cursor:default}
+img {max-width:100%}
+em {font-style:normal}
+table {border-collapse:collapse;border-spacing:0;width:100%}
+table tr, table td {margin:0;padding:0}
+select {-webkit-appearance:none;-moz-appearance:none}
+p {margin:0;padding:0;line-height:1.5}
+a {display:inline-block;color:var(--gray-99);text-decoration:none;font-family:'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+::placeholder {font-family:'Pretendard', 'Malgun Gothic', '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;color:var(--gray-50)}
+*, :after, :before {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+
+body {
+    --primary-10:#FFF6F6;
+    --primary-20:#ffcece;
+    --primary-30:#FF8787;
+    --primary-40:#FF6D6D;
+    --primary-50:#FF5454;
+    --primary-80:#fe4848;
+    --primary-90:#ff2b2b;
+
+    --secondary-40:#1fa0ff;
+    --secondary-50:#0093FF;
+
+    --gray-10:#FAFAFA;
+    --gray-20:#F5F6F7;
+    --gray-25:#EFF0F2;
+    --gray-30:#E8E9EB;
+    --gray-40:#DCDDDE;
+    --gray-50:#A6A8AD;
+    --gray-60:#8b8f95;
+    --gray-70:#595C61;
+    --gray-80:#414346;
+    --gray-90:#2E2F31;
+    --gray-99:#1A1B1C;
+
+    --beige-10:#fef3e9;
+    --beige-30:#fccfa4;
+    --beige-40:#fbc28b;
+    --beige-50:#f2a46c;
+    --beige-80:#522903;
+
+    --white:#FFFFFF;
+    --red-light:#FDE5E5;
+    --red-dark:#F23E3E;
+    --sub-50:#E77B12;
+    --green-dark:#96da36;
+    --blue:#1fa0ff;
+    --black:#000000;
+
+    --layout-box:#ffffff;
+    --logo-svg:#000000;
+}
+
+body[data-theme="dark"] {
+    --gray-10:#131315;
+    /*--gray-20:#181819;*/
+    --gray-20:#1a1a1c;
+    --gray-30:#222223;
+    --gray-40:#2c2c2e;
+    --gray-45:#38383b;
+    --gray-50:#59595c;
+    --gray-60:#89898e;
+    --gray-70:#9b9b9f;
+    --gray-80:#c0c0c2;
+    --gray-90:#dadadb;
+    --gray-99:#e4e4e5;
+
+    /*--primary-50:#e28108;*/
+    --green-dark:#76b221;
+
+    --layout-box:#222223;
+    --logo-svg:#FFFFFF;
+}
+
+@keyframes fadeUp { from {transform:translateY(4px);opacity:0} to {transform:translateY(0);opacity:1} }
+
+@media screen and (max-width:600px) {
+    .error_page {width:auto}
+    .error_page h2 {font-size:24px;margin:40px 0 20px}
+    .error_page p {font-size:13px}
+    .error_page .btn_primary {width:120px;height:44px}
+}
+
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {min-height:500px}
+.ck-rounded-corners .ck.ck-editor__main>.ck-editor__editable, .ck.ck-editor__main>.ck-editor__editable.ck-rounded-corners {border-bottom-left-radius:8px !important;border-bottom-right-radius:8px !important;padding:5px 13px}
+.ck-rounded-corners .ck.ck-editor__top .ck-sticky-panel .ck-toolbar, .ck.ck-editor__top .ck-sticky-panel .ck-toolbar.ck-rounded-corners {border-radius:8px 8px 0 0 !important}
+.ck.ck-balloon-panel.ck-balloon-panel_visible .ck.ck-powered-by {display:none !important}

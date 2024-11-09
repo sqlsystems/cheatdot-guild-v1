@@ -1,0 +1,263 @@
+.layout_box {background:var(--white);border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.04)}
+.layout_box .head {display:flex;align-items:center;border-bottom:solid 1px var(--gray-30);padding:20px}
+.layout_box .head h2 {font-size:19px;font-weight:600}
+.layout_box .head .search_wrap {margin-left:auto}
+.layout_box .head .btn_primary {margin-left:10px}
+
+/* 길드 */
+.guild_container {min-height:calc(100vh - 90px);padding:20px 0 50px}
+.guild_container .search_wrap {justify-content:flex-end}
+.guild_footer {min-width:1280px;background:var(--white);border-top:solid 1px var(--gray-99);padding:30px 0}
+.guild_footer .wrapper {display:flex;align-items:center;justify-content:space-between}
+.guild_footer .info {display:flex;align-items:center;font-size:16px;color:var(--gray-70)}
+.guild_footer .info .tit {display:flex;align-items:center;font-size:1.1em;font-weight:600;color:var(--gray-99)}
+.guild_footer .info .tit::after {content:'';display:block;width:1px;height:14px;background:var(--gray-30);margin:0 20px}
+.guild_footer .logo {display:flex;align-items:center;gap:0 10px;font-size:24px;font-weight:600;color:var(--logo-svg)}
+
+.guild_wrap {display:flex;align-items:flex-start;gap:0 20px}
+.guild_wrap .left_menu svg {opacity:.5;transition:all .2s}
+.guild_wrap .btn_add:hover {background:var(--gray-20)}
+.guild_wrap .btn_add:hover svg {opacity:1}
+.guild_wrap .left_menu {flex:240px 0 0;min-height:250px;background:var(--white);border-radius:8px;overflow:hidden}
+.guild_wrap .left_menu .guild_name {position:relative}
+.guild_wrap .left_menu .guild_name .btn_top {display:flex;align-items:center;justify-content:space-between;width:100%;height:44px;border-bottom:solid 1px var(--gray-40);padding:0 16px;transition:all .2s}
+.guild_wrap .left_menu .guild_name .btn_top:hover {background:var(--gray-30)}
+.guild_wrap .left_menu .guild_name .btn_top span {font-size:15px;font-weight:600}
+.guild_wrap .left_menu .guild_name .btn_top svg {opacity:1}
+.guild_wrap .left_menu .guild_name .btn_top svg path {transition:all .2s}
+.guild_wrap .left_menu .guild_name .btn_top.on svg {transform:rotate(180deg)}
+.guild_wrap .left_menu .guild_menu {width:calc(100% - 24px);border-radius:8px;padding:8px;background:var(--white);box-shadow:0 0 16px rgba(0,0,0,.12);position:absolute;top:44px;left:12px;z-index:9;animation:fadeUp .2s ease-out}
+.guild_wrap .left_menu .guild_menu ul li > * {display:flex;align-items:center;justify-content:space-between;width:100%;height:34px;border-radius:3px;font-size:15px;padding:0 8px;transition:all .2s}
+.guild_wrap .left_menu .guild_menu ul li > *:hover {background:var(--gray-20)}
+.guild_wrap .left_menu .guild_menu ul li > *:hover svg {opacity:1}
+.guild_wrap .category_wrap {padding:8px 0}
+.guild_wrap .category_wrap > div + div {margin-top:10px}
+.guild_wrap .category_wrap .btn_top {display:flex;align-items:center;justify-content:space-between;padding-right:12px}
+.guild_wrap .category_wrap .btn_top .btn_toggle {display:flex;align-items:center;gap:0 8px;height:32px;font-size:15px;color:var(--gray-70);padding-left:10px;transition:all .2s}
+.guild_wrap .category_wrap .btn_top .btn_toggle svg {transform:rotate(-90deg) translateX(1px)}
+.guild_wrap .category_wrap .btn_top .btn_toggle:hover {color:var(--gray-99)}
+.guild_wrap .category_wrap .btn_top .btn_toggle:hover svg {opacity:1}
+.guild_wrap .category_wrap .btn_top .btn_toggle.on svg {transform:none}
+.guild_wrap .category_wrap .btn_top .btn_add {display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:4px}
+.guild_wrap .category_wrap ul {padding:0 12px}
+.guild_wrap .category_wrap ul + ul {margin-top:16px}
+.guild_wrap .category_wrap ul li {display:flex;align-items:center;height:36px;border-radius:5px;padding-right:8px;transition:all .2s}
+.guild_wrap .category_wrap ul li a svg path {transition:all .2s}
+.guild_wrap .category_wrap ul li.on {background:var(--primary-50)}
+.guild_wrap .category_wrap ul li:hover a {color:var(--primary-50)}
+.guild_wrap .category_wrap ul li:hover a svg path,
+.guild_wrap .category_wrap ul li:hover a svg .line {fill:var(--primary-50)}
+.guild_wrap .category_wrap ul li.on a {color:var(--white)}
+.guild_wrap .category_wrap ul li:hover a svg,
+.guild_wrap .category_wrap ul li.on a svg {opacity:1}
+.guild_wrap .category_wrap ul li.on a svg path,
+.guild_wrap .category_wrap ul li.on a svg .line,
+.guild_wrap .category_wrap ul li.on button path {fill:var(--white)}
+.guild_wrap .category_wrap ul li.on button {display:flex;color:var(--white)}
+.guild_wrap .category_wrap ul li a {flex:1;display:flex;align-items:center;gap:0 6px;height:100%;padding:0 10px;transition:all .2s}
+.guild_wrap .category_wrap ul li a:hover svg {opacity:1}
+.guild_wrap .category_wrap ul li button {align-items:center;justify-content:center;width:24px;height:24px;color:var(--gray-70);margin-left:auto;transition:all .2s}
+.guild_wrap .category_wrap ul li button:hover svg {opacity:1}
+
+.guild_wrap .right_wrap {flex:1}
+.guild_wrap .top_banner {display:flex;align-items:center;gap:0 20px;height:200px;color:var(--white);background:no-repeat center/cover;border-radius:8px;padding:0 40px;margin-bottom:20px;position:relative;overflow:hidden}
+.guild_wrap .top_banner::before {content:'';display:block;width:100%;height:100%;background:linear-gradient(50deg, rgba(0,0,0,.7), rgba(0,0,0,.35) 30%, rgba(0,0,0,0));position:absolute;top:0;left:0;z-index:0;backdrop-filter:blur(3px) brightness(90%)}
+.guild_wrap .top_banner .profile {position:relative;z-index:2}
+.guild_wrap .top_banner .profile img {width:120px;border-radius:120px;box-shadow:0 0 6px rgba(0,0,0,.16)}
+.guild_wrap .top_banner .profile button {display:flex;align-items:center;justify-content:center;width:38px;height:38px;background:var(--primary-50);border-radius:38px}
+.guild_wrap .top_banner .profile button img {width:20px}
+.guild_wrap .top_banner .right {position:relative;z-index:2;text-shadow:1px 1px 0 rgba(0,0,0,.16)}
+.guild_wrap .top_banner .right .tit {font-size:34px;font-weight:600}
+.guild_wrap .top_banner .right .info {display:flex;align-items:center;font-size:14px;font-weight:300;color:rgba(255,255,255,.9);margin-top:10px}
+.guild_wrap .top_banner .right .info span {display:flex;align-items:center}
+.guild_wrap .top_banner .right .info span + span::before {content:'';display:block;width:1px;height:8px;background:rgba(255,255,255,.4);margin:0 14px}
+.guild_wrap .top_banner .right .info strong {font-weight:700;margin-left:5px}
+.guild_wrap .top_banner .btn_wrap {position:absolute;right:20px;bottom:20px}
+.guild_wrap .top_banner .btn_wrap .btn {width:auto;height:40px;background:rgba(0,0,0,.4);font-size:15px;font-weight:500;color:var(--white);padding:0 14px;backdrop-filter:blur(4px)}
+.guild_wrap .top_banner .btn_wrap .btn:hover {background:rgba(255,255,255,.42)}
+
+.store_view .head {display:block;border-bottom:solid 1px var(--gray-30);padding:30px 24px 20px}
+.store_view .head .tit {display:block;font-size:22px;font-weight:600;line-height:1.4}
+.store_view .item_info {display:flex;align-items:center;font-size:15px;margin-top:10px}
+.store_view .item_info .star_box {padding-right:20px;margin-right:20px;position:relative}
+.store_view .item_info .star_box::after {content:'';display:block;width:1px;height:20px;background:var(--gray-30);position:absolute;top:50%;right:0;transform:translateY(-50%)}
+.store_view .item_info .price {display:flex;align-items:center;gap:0 6px;font-size:17px;margin-right:30px}
+.store_view .item_info .percent {font-weight:600}
+.store_view .item_info .regular_price {font-size:12px;font-weight:normal;color:var(--gray-40);text-decoration:line-through;position:absolute;top:-10px;left:0}
+.store_view .item_info .cp {display:flex;align-items:center;gap:0 6px;font-weight:700;color:var(--primary-50);position:relative}
+.store_view .item_info .cp img {margin:0}
+.store_view .item_info .rest {color:var(--gray-60);margin-right:30px}
+.store_view .item_info .rest strong {color:var(--gray-99);font-weight:600}
+.store_view .item_info .btn_black {margin-left:auto}
+.store_view .content {border-bottom:solid 1px var(--gray-30);font-size:17px;padding:30px 30px 60px}
+.store_view .content img {margin:16px 0}
+.store_view .content .item_info {justify-content:center;width:560px;background:var(--gray-10);border-radius:4px;margin:60px auto 0;padding:12px 20px}
+.store_view .content .item_info .btn_black {margin-left:0}
+.store_view .content .item_info .star_box .bg .star {background-image:url('../public/img/star_bg_01.svg')}
+
+/* 길드 설정 */
+.setting_pop {width:100%;height:100%;background:linear-gradient(to right, var(--gray-30) 30%, var(--white) 30%);position:fixed;top:0;left:0;z-index:998}
+.setting_pop .wrapper {display:flex;width:1200px;min-width:1200px;gap:0}
+.setting_pop .wrapper > div {height:100vh}
+.setting_pop .menu_wrap {flex:220px 0 0;height:100%;background:var(--gray-30);padding:40px 0}
+.setting_pop .menu_wrap .inner {height:100%;padding:0 10px;overflow-y:auto}
+.setting_pop .menu_wrap .inner > div + div {border-top:solid 1px rgba(0,0,0,.1);margin-top:10px;padding-top:10px}
+.setting_pop .menu_wrap .tit {display:flex;align-items:center;height:28px;font-size:13px;font-weight:600;color:var(--gray-60);padding:0 10px}
+.setting_pop .menu_wrap ul li > * {display:flex;align-items:center;width:100%;height:36px;border-radius:5px;font-size:15px;color:var(--gray-99);padding:0 10px;transition:all .2s}
+.setting_pop .menu_wrap ul li > * .num {display:flex;align-items:center;justify-content:center;min-width:22px;height:22px;background:var(--primary-50);border-radius:22px;color:var(--white);font-weight:600;text-align:center;padding:0 6px;margin-left:auto}
+.setting_pop .menu_wrap ul li > *:hover {font-weight:600}
+.setting_pop .menu_wrap ul li > .on {background:var(--gray-90);color:var(--white);font-weight:500}
+.setting_pop .content {flex:1;display:flex;flex-direction:column;width:100%;background:var(--white);padding:40px 0 40px 30px;position:relative}
+.setting_pop .content .btn_close {display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:var(--gray-20);border-radius:40px;position:absolute;right:-60px;top:36px;transition:all .2s}
+.setting_pop .content .btn_close:hover {background:var(--gray-30)}
+.setting_pop .content .btn_close svg {opacity:1}
+.setting_pop .content .head_tit {display:flex;align-items:center;padding-bottom:30px}
+.setting_pop .content .head_tit h2 {font-size:22px;font-weight:500}
+.setting_pop .content .head_tit p {font-size:14px;color:var(--gray-60);margin-top:8px}
+.setting_pop .content .head_tit p em {color:var(--primary-50)}
+.setting_pop .content .head_tit .btn_wrap {margin-left:auto}
+.setting_pop .content .inner {width:calc(100% + 20px);height:100%;padding:10px 10px 60px;overflow-y:auto;margin-left:-10px}
+.setting_pop .content .inner > .top {display:flex;align-items:center;margin:-8px 0 16px}
+.setting_pop .content .inner > .top .btn_wrap {margin-left:auto}
+.setting_pop .content .inner > .top .btn_wrap .btn {display:inline-flex;width:auto;border-radius:50px}
+.setting_pop .content .inner > .top .mark {font-size:16px;margin-right:16px}
+.setting_pop .content .inner > .top .mark strong {color:var(--primary-50);margin-left:5px}
+.setting_pop .content .inner > .top .mark.black strong {color:var(--gray-99)}
+.setting_pop .content .item + .item {margin-top:30px}
+.setting_pop .content .item .tit_box {display:flex;align-items:center;font-size:14px;font-weight:500;line-height:1.4;margin-bottom:10px}
+.setting_pop .content .item .tit_box .tit {display:block;color:var(--gray-70)}
+.setting_pop .content .item .tit_box .explain {color:var(--gray-50);margin-left:auto}
+.setting_pop .content .item .cont {flex:1}
+.setting_pop .content .input_box input {height:44px}
+.setting_pop .content .select_box select {min-width:80px;width:100%;height:44px}
+.setting_pop .content .search_wrap .select_box select {width:120px}
+.setting_pop .content .input_box input:focus {border:solid 1px var(--gray-50)}
+.setting_pop .content .item .have_count {position:relative}
+.setting_pop .content .item .have_count input {padding-right:50px}
+.setting_pop .content .item .have_count .count {font-size:13px;color:var(--gray-60);background:transparent;position:absolute;right:16px;bottom:10px;padding:0}
+.setting_pop .content .item .cp input {padding-left:50px;background-image:url('../public/img/cp.png');background-position:left 14px center;background-repeat:no-repeat;background-size:24px}
+.setting_pop .content .table td {font-size:14px}
+.setting_pop .content .table td .select_box select {height:32px;font-size:14px}
+.setting_pop .content .table td .opt_wrap .opt_open {margin:0 auto}
+.setting_pop .content .table td .id {font-size:12px;margin-left:4px}
+.setting_pop .save_alert {animation:bounceInUp 1s both;display:flex;align-items:center;justify-content:space-between;gap:0 10px;width:100%;min-height:50px;background:var(--black);border-radius:5px;font-size:16px;color:var(--white);position:absolute;bottom:20px;left:0;padding:10px 20px;box-shadow:0 0 10px rgba(0,0,0,.16)}
+.setting_pop .save_alert .btn_wrap .btn {color:var(--white);white-space:nowrap}
+.setting_pop .save_alert .btn_wrap .btn:hover {text-decoration:underline}
+.setting_pop .save_alert .btn_wrap .btn_green {background:#278c34;height:32px}
+.setting_pop .save_alert .btn_wrap .btn_green:hover {background:#21782d;text-decoration:initial}
+.setting_pop .tag_wrap {display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.setting_pop .tag_wrap .tag {display:flex;align-items:center;background:var(--gray-20);border-radius:4px;font-size:15px;font-weight:500;padding:10px 8px 10px 12px}
+.setting_pop .tag_wrap .tag .btn_delete:hover svg {opacity:1}
+.setting_pop .tag_wrap .tag .btn_delete svg {width:12px;height:12px}
+.setting_pop .img_upload_wrap {display:flex;align-items:center;gap:0 20px}
+.setting_pop .img_upload_wrap .img_wrap {border-radius:4px;font-size:14px;text-align:center;color:var(--gray-60);position:relative;overflow:hidden}
+.setting_pop .img_upload_wrap .img_wrap span {display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--gray-20);position:absolute;top:0;left:0}
+.setting_pop .img_upload_wrap .img_wrap.guild_profile {width:120px;height:120px;border-radius:120px}
+.setting_pop .img_upload_wrap .img_wrap.guild_list_banner {width:700px;height:0;padding-bottom:17.1%}
+.setting_pop .img_upload_wrap .img_wrap.guild_banner {width:315px;height:0;padding-bottom:17.3%}
+.setting_pop .img_upload_wrap .img_wrap img {width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.setting_pop .img_upload_wrap .img_upload .file_upload input {display:none}
+.setting_pop .img_upload_wrap .img_upload .file_upload label {display:inline-flex;border-radius:40px;cursor:pointer}
+.setting_pop .img_upload_wrap .img_upload p {color:var(--gray-60);margin-top:14px}
+.setting_pop .top_box {display:flex;align-items:center;border-bottom:solid 1px var(--gray-25);padding:16px 20px}
+.setting_pop .top_box .search_wrap {margin-left:auto}
+.setting_pop .top_box .search_wrap .select_box select {height:38px}
+.setting_pop table .profile {display:flex;align-items:center;gap:0 10px}
+.setting_pop table .profile svg {opacity:1}
+.setting_pop table tr.approve_wait,
+.setting_pop table tr.sum {background:var(--gray-10)}
+.setting_pop .year_btn {display:flex;align-items:center;justify-content:center;gap:0 10px;margin-bottom:24px}
+.setting_pop .year_btn .year {white-space:nowrap;font-size:34px;font-weight:700;text-align:center}
+.setting_pop .year_btn button {display:flex;align-items:center;justify-content:center;width:40px;height:40px}
+.setting_pop .year_btn button:disabled {opacity:.3}
+.setting_pop .year_btn button svg {opacity:1}
+.setting_pop .year_btn button path {fill:var(--gray-99)}
+.setting_pop .auth_list li {display:flex;align-items:center;height:48px;border-top:solid 1px var(--gray-20)}
+.setting_pop .auth_list li .tit {flex:200px 0 0;font-size:15px}
+.setting_pop .auth_list li .select_box select {height:32px}
+.setting_pop .table.prd_list .img_wrap {width:120px;height:0;border-radius:4px;padding-bottom:58.5%;position:relative;overflow:hidden}
+.setting_pop .table.prd_list .img_wrap img {width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+.setting_pop .table.prd_list .txt_wrap {text-align:left}
+.setting_pop .table.prd_list .txt_wrap a {display:block;max-width:300px;font-size:17px;font-weight:500;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.setting_pop .table.prd_list .txt_wrap p {font-size:14px;color:var(--gray-60);margin-top:4px}
+.setting_pop .table.prd_list .btn {display:inline-flex;height:32px;font-size:14px;padding:0 14px}
+.setting_pop .explain {color:var(--gray-60);margin:8px 0}
+.setting_pop .flex {display:flex;align-items:center;gap:0 10px}
+.setting_pop .admin_add {margin-top:50px}
+.setting_pop .admin_add .col3 {display:grid;grid-template-columns:repeat(3, 1fr);gap:0 10px}
+.setting_pop .admin_add .col3 .item + .item {margin:0}
+.setting_pop .admin_add .chk_wrap {min-height:44px}
+.setting_pop .admin_add .head {font-size:15px;padding:0 0 20px 0;border-bottom:0}
+.setting_pop .admin_add .head .btn_wrap {margin-left:auto}
+
+.calendar {border:solid 1px var(--gray-30);border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.04)}
+.calendar th {width:calc(100% / 7);height:50px;font-size:14px;font-weight:500;border-left:solid 1px var(--gray-30);border-right:solid 1px var(--gray-30)}
+.calendar th:first-child,
+.calendar td:first-child {color:var(--red-dark);border-left:0}
+.calendar th:last-child,
+.calendar td:last-child {border-right:0}
+.calendar tr:last-child td {border-bottom:0}
+.calendar td {height:108px;font-size:14px;font-weight:500;border:solid 1px var(--gray-30);vertical-align:top;padding:14px}
+.calendar td .day {text-align:right}
+.calendar td .today {position:relative;color:var(--white)}
+.calendar td .today::after {content:'';display:block;width:28px;height:28px;background:var(--red-dark);border-radius:20px;position:absolute;top:50%;right:-6.5px;transform:translateY(-50%);z-index:1}
+.calendar td .today span {position:relative;z-index:2}
+.calendar td .num {display:block;text-decoration:underline;margin-top:20px}
+.calendar td .profit {display:block;font-size:15px;font-weight:500;color:var(--red-dark);margin-top:8px}
+
+.prd_inventory .tab_menu {border:0;height:auto;padding:0;margin-bottom:16px}
+.prd_inventory .tab_menu::after {display:none}
+.prd_inventory .tab_menu ul {gap:6px;flex-wrap:wrap}
+.prd_inventory .tab_menu ul > li {flex:0}
+.prd_inventory .tab_menu li > * {height:38px;border:solid 1px var(--gray-30);border-radius:30px}
+.prd_inventory .tab_menu li > *:hover {transform:none;border-color:var(--primary-50);color:var(--primary-50)}
+.prd_inventory .tab_menu li > *.on {border-color:var(--primary-50);background:var(--primary-50);color:var(--white);transform:none}
+.prd_inventory .tab_menu li > *.on::before {display:none}
+.prd_inventory .btn_wrap {justify-content:center;margin-top:30px}
+.prd_inventory .btn_wrap .btn {max-width:180px;height:50px}
+.prd_inventory table td {text-align:center;padding:5px}
+.prd_inventory table td .select_box select {width:100%}
+.prd_inventory table td .btn_delete {display:flex;align-items:center;justify-content:center;width:100%;height:44px}
+
+/* 길드 리스트 */
+.guild_list {margin-top:20px}
+.guild_list ul {display:grid;grid-template-columns:repeat(4, 1fr);gap:20px}
+.guild_list li {background:var(--white);border-radius:8px;overflow:hidden}
+.guild_list li a {display:block}
+.guild_list li a .img_wrap {width:100%;height:0;padding-bottom:50%;position:relative}
+.guild_list li a .img_wrap img {width:100%;height:100%;object-fit:cover;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%)}
+.guild_list li a .owner_profile {width:80px;height:80px;overflow:hidden;border-radius:80px;position:absolute;right:20px;bottom:0;transform:translateY(50%)}
+.guild_list li a .owner_profile img {width:100%;height:100%;object-fit:cover}
+.guild_list li a .txt_wrap {padding:20px 20px 24px}
+.guild_list li a .txt_wrap .tit {display:block;font-size:22px;font-weight:700;word-break:break-word;padding-right:78px}
+.guild_list li a .txt_wrap .info {display:flex;align-items:center;flex-wrap:wrap;gap:10px 0;font-size:14px;margin-top:14px}
+.guild_list li a .txt_wrap .info span {display:flex;align-items:center;font-weight:300;color:var(--gray-70)}
+.guild_list li a .txt_wrap .info span:first-child::after {content:'';display:block;width:1px;height:8px;background:var(--gray-30);margin:0 14px}
+.guild_list li a .txt_wrap .info span strong {font-weight:600;color:var(--gray-80);margin-left:4px}
+.guild_list li a .txt_wrap .tag_wrap {display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:20px}
+.guild_list li a .txt_wrap .tag_wrap span {background:var(--gray-20);border-radius:4px;font-size:13px;font-weight:500;padding:8px}
+
+/* 길드 멤버 활동정지 / 탈퇴 팝업 */
+.member_out_pop {width:400px}
+.member_out_pop .item .tit {font-size:15px;font-weight:500;margin-bottom:12px}
+.member_out_pop .item .radio_wrap {display:flex;flex-direction:column;align-items:flex-start;gap:8px 0}
+.member_out_pop .item .select_box select {width:120px}
+.member_out_pop .item .input_box {width:100%}
+
+/* 길드 프로필 설정(새창) */
+.guild_profile_edit {min-height:100vh;background:var(--white)}
+.guild_profile_edit .page_title {height:50px;background:var(--primary-50);color:var(--white)}
+.guild_profile_edit .cont {padding:30px}
+.guild_profile_edit .photo_edit {display:flex;align-items:center;gap:0 20px}
+.guild_profile_edit .photo_edit > p {font-size:14px}
+.guild_profile_edit .photo_edit .img_wrap {width:100px;height:100px;position:relative}
+.guild_profile_edit .photo_edit .img_wrap > img {width:100%;border-radius:100px}
+.guild_profile_edit .photo_edit .img_wrap .img_edit {position:absolute;bottom:-2px;right:-2px}
+.guild_profile_edit .photo_edit .img_wrap .img_edit > button {display:flex;align-items:center;justify-content:center;width:34px;height:34px;background:var(--white);border:solid 1px var(--gray-30);border-radius:30px;transition:all .2s}
+.guild_profile_edit .photo_edit .img_wrap .img_edit > button path {fill:var(--gray-70);transition:all .2s}
+.guild_profile_edit .photo_edit .img_wrap .img_edit > button:hover {background:var(--gray-10)}
+.guild_profile_edit .photo_edit .img_wrap .img_edit > button:hover path {fill:var(--gray-90)}
+.guild_profile_edit .photo_edit .img_wrap .img_edit .pop_layer {position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%)}
+.guild_profile_edit .form {margin-top:40px}
+.guild_profile_edit .btn_wrap {justify-content:center;margin-top:20px}
+.guild_profile_edit .btn_wrap .btn {max-width:100px}
