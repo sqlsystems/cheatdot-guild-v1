@@ -5,8 +5,8 @@ import query_string from './query_string';
 import store from './store';
 
 export default {
-    guild: guild,
     ...GuildSettings,
+    guild,
     guild_board_list: board_list,
     guild_query_string: query_string,
     guild_store: store

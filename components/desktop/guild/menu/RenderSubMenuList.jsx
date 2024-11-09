@@ -17,7 +17,7 @@ const RenderSubMenuList = (props) => {
 
     return (
         <li className={parseInt(router.query.channel_id) === s.id ? style.on : null} onMouseEnter={() => props.isAdmin && setMenu(s.id)} onMouseLeave={() => props.isAdmin && setMenu(null)}>
-            <Link href={`/guild/${router.query.channel}/${s.id}`} onClick={() => dispatch(setChannelData(s))}>
+            <Link href={`/${router.query.channel}/${s.id}`} onClick={() => dispatch(setChannelData(s))}>
                 <MenuIcon type={s.type}/>
                 {s.name}
             </Link>

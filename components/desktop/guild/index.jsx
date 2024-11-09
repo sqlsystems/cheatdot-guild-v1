@@ -3,9 +3,9 @@ import style from 'css/desktop.module.css';
 
 import Logo from 'components/public/Layouts/Logo';
 import GuildMenuBox from './GuildMenuBox';
-import MainContent from './MainContent';
+import GuildInfo from '@guild/GuildInfo';
 
-const Guild = ({ children }) => {
+const Guild = ({ Component, pageProps }) => {
     return (
         <>
             <div className={style.guild_container}>
@@ -13,7 +13,13 @@ const Guild = ({ children }) => {
                     <div className={style.guild_wrap}>
                         <GuildMenuBox />
 
-                        <MainContent children={children} />
+                        <div className={style.right_wrap}>
+                            <GuildInfo />
+
+                            <div>
+                                <Component pageProps={pageProps} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

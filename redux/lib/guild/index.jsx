@@ -40,11 +40,11 @@ export const createCategory = (name) => async(dispatch, getState) => {
     if (res.data.error.msg)
         return dispatch(alert({ content: res.data.error.msg }));
 
-    dispatch(sendWebSocketData({
-        type: 'guild',
-        event: 'create_category',
-        data: res.data.message.result
-    }));
+    // dispatch(sendWebSocketData({
+    //     type: 'guild',
+    //     event: 'create_category',
+    //     data: res.data.message.result
+    // }));
 }
 
 export const createCategoryChannel = (e) => async(dispatch, getState) => {
