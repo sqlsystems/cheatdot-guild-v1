@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import { setChannelData, setMetaData } from '@redux/modules/guild/guild';
 import { setInitBoardData } from '@redux/modules/guild/board';
 import { setInitStoreData } from '@redux/modules/guild/store';
 import { updateOpenGraph } from '@redux/modules/opengraph';
+import DeskTopGuild from 'components/desktop/guild';
 
 const Board = dynamic(() => import('components/desktop/guild/channels/Board/List'));
 const Album = dynamic(() => import('components/desktop/guild/channels/Board/Album'));
@@ -18,7 +19,7 @@ const ChannelID = ({ pageProps }) => {
 
     const { channelType } = pageProps;
 
-    const mainApp = useMemo(() => {
+    const renderContent = () => {
         if (pageProps.error?.msg)
             return <h1>{pageProps.error.msg}</h1>;
 
@@ -30,7 +31,7 @@ const ChannelID = ({ pageProps }) => {
             case 4: //스토어
                 return <Store />;
         }
-    }, [channelType]);
+    }
 
     let title = '';
     title = metadata.title;
@@ -45,7 +46,9 @@ const ChannelID = ({ pageProps }) => {
                 <title>{title}</title>
             </Head>
 
-            {mainApp}
+            <DeskTopGuild>
+                {renderContent()}
+            </DeskTopGuild>
         </>
     );
 }

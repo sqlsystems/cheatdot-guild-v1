@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
+import Alert from 'components/public/Alert';
 
 const DeskTopApp = dynamic(() => import('components/desktop'));
 const MobileApp = dynamic(() => import('components/mobile'));
@@ -17,6 +18,8 @@ export default function Root({ Component, pageProps }) {
     return (
         <>
             {mainApp}
+
+            <Alert />
         </>
     );
 }
