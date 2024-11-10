@@ -81,7 +81,7 @@ MyApp.getInitialProps = async({ Component, ctx }) => {
             'user-agent': ctx.req.headers['user-agent']
         };
 
-        const res = await axiosServer.post('/v4/api.php', { cmd: 'init' }, {
+        const res = await axiosServer.post('/v4/guild/util/api.php', { cmd: 'init' }, {
             headers: {
                 ...withHeaders,
             }
@@ -110,18 +110,15 @@ MyApp.getInitialProps = async({ Component, ctx }) => {
     if (((ctx.req) && ctx.pathname.includes('/[channel]'))) {
         // await ctx.reduxStore.dispatch(updateQueryString(ctx.query, ctx.asPath));
 
-        const guildInfoChannel = ctx.reduxStore.getState().guild.res_data.guild_info.channel;
-        if (guildInfoChannel !== ctx.query.channel) {
-            const res = await axiosServer.post('/v4/guild/api.php', {
-                cmd: 'get_init_data',
-                data: {
-                    channel: ctx.query.channel,
-                    channel_id: ctx.query.channel_id,
-                }
-            });
+        const res = await axiosServer.post('/v4/guild/api.php', {
+            cmd: 'get_init_data',
+            data: {
+                channel: ctx.query.channel,
+                channel_id: ctx.query.channel_id,
+            }
+        });
 
-            await ctx.reduxStore.dispatch(setGuildInitData(res.data));
-        }
+        await ctx.reduxStore.dispatch(setGuildInitData(res.data));
     }
 
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};

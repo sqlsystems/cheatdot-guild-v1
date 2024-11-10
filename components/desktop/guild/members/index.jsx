@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import style from 'css/desktop.module.css';
-import UserProfile from "../../../public/UserProfile";
 
 const Write = dynamic(() => import('./Write'));
 const Comment = dynamic(() => import('./Comment'));
@@ -46,7 +45,7 @@ const UserHome = (props) => {
                     </div>
 
                     <div className={style.info}>
-                        <UserProfile mb_id="test" mb_nick="ㅎㅏㅎㅏ" mb_level="2"/>
+                        {/*<UserProfile mb_id="test" mb_nick="ㅎㅏㅎㅏ" mb_level="2"/>*/}
 
                         <div className={style.info_detail}>
                             <span>작성글<em>{props.total_gall}</em></span>

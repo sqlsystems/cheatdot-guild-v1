@@ -91,7 +91,7 @@ export default function Home({ pageProps }) {
 Home.getInitialProps = async (ctx) => {
     const axios = createAxiosInstance(ctx.req);
 
-    const res = await axios.post('/v4/guild/utils/api.php', {
+    const res = await axios.post('/v4/guild/util/api.php', {
         cmd: 'get_guild_list'
     });
 

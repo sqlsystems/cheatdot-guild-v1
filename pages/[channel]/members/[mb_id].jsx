@@ -16,7 +16,7 @@ const UserHome = ({ pageProps }) => {
     return (
         <>
             <DeskTopGuild>
-                {renderContent()}
+                {/*{renderContent()}*/}
             </DeskTopGuild>
         </>
     );

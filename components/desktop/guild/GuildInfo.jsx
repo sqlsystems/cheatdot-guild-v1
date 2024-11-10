@@ -38,7 +38,7 @@ const GuildInfo = () => {
                 {member.mb_id ?
                     <>
                         <button type="button" className={style.btn}>길드탈퇴</button>
-                        <Link href={`/guild/${guildInfo.channel}/members/${encrypt(member.mb_id)}`} className={style.btn}>내정보</Link>
+                        <Link href={`/${guildInfo.channel}/members/${encrypt(member.mb_id)}`} className={style.btn}>내정보</Link>
                     </>
                     :
                     <>
