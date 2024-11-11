@@ -1,6 +1,6 @@
 import React, { memo, Fragment, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setCreateChannelModal } from '@redux/modules/guild/guild';
+import { setCreateChannelModal } from '@redux/modules/guild';
 import style from 'css/desktop.module.css';
 
 import RenderSubMenuList from './RenderSubMenuList';

@@ -8,7 +8,7 @@ import nookies from 'nookies';
 import axios from 'axios';
 import { setInitData, setDeviceInfo } from '@redux/modules/global';
 import { getMyInfo } from '@redux/modules/member';
-import { setInitData as setGuildInitData } from '@redux/modules/guild/guild';
+import { setInitData as setGuildInitData } from '@redux/modules/guild';
 import { updateQueryString } from '@redux/modules/guild/query_string';
 import Root from 'components/Root';
 

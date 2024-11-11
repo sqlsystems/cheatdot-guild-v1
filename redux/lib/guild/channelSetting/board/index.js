@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setSettingConfirm, setChannelBoardData } from '@redux/modules/guild/guild';
+import { setSettingConfirm, setChannelBoardData } from '@redux/modules/guild';
 import { alert } from '@redux/modules/alert';
 
 export const updateAuth = (e) => async dispatch => {

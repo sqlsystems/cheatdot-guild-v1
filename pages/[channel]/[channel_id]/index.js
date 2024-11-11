@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { createAxiosInstance } from 'utils/axios';
-import { setChannelData, setMetaData } from '@redux/modules/guild/guild';
+import { setChannelData, setMetaData } from '@redux/modules/guild';
 import { setInitBoardData } from '@redux/modules/guild/board';
 import { setInitStoreData } from '@redux/modules/guild/store';
 import { updateOpenGraph } from '@redux/modules/opengraph';

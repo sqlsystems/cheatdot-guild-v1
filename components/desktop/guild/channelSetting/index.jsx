@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import { useSelector, useDispatch } from 'react-redux';
-import { setChannelSettingData } from '@redux/modules/guild/guild';
+import { setChannelSettingData } from '@redux/modules/guild';
 import useSettingPage from 'hooks/guild/useSettingPage';
 
 const BoardChannelSetting = dynamic(() => import('./Board'), { ssr: false });

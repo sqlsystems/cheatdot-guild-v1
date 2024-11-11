@@ -1,7 +1,8 @@
+import { combineReducers } from 'redux';
 import member from './member';
 import activityStop from './activity_stop_member';
 
-export default {
-    guild_setting_member: member,
-    guild_setting_activity_stop_member: activityStop,
-};
+export default combineReducers({
+    member,
+    activityStop,
+});

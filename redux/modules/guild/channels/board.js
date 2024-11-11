@@ -1,10 +1,8 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SET_INIT_DATA = 'guild/store/SET_INIT_DATA';
-const SET_VIEW_DATA = 'guild/store/SET_VIEW_DATA';
+const SET_INIT_BOARD_LIST = 'guild/board/SET_INIT_BOARD_LIST';
 
-export const setInitStoreData = createAction(SET_INIT_DATA);
-export const setViewData = createAction(SET_VIEW_DATA);
+export const setInitBoardList = createAction(SET_INIT_BOARD_LIST);
 
 const initialState = {
     list: {
@@ -22,20 +20,11 @@ const initialState = {
 };
 
 export default handleActions({
-    [SET_INIT_DATA]: (state, { payload }) => {
+    [SET_INIT_BOARD_LIST]: (state, { payload }) => {
         return {
             ...state,
             list: {
                 ...state.list,
-                ...payload
-            }
-        }
-    },
-    [SET_VIEW_DATA]: (state, { payload }) => {
-        return {
-            ...state,
-            view: {
-                ...state.view,
                 ...payload
             }
         }

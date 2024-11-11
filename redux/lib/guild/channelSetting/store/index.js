@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setSettingConfirm } from '@redux/modules/guild/guild';
+import { setSettingConfirm } from '@redux/modules/guild';
 import { alert } from '@redux/modules/alert';
 
 export const updateDefault = (e) => async(dispatch, getState) => {

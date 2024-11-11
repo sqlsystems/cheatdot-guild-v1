@@ -2,7 +2,7 @@ import React, { memo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import { setChannelData, setChannelSettingData } from '@redux/modules/guild/guild';
+import { setChannelData, setChannelSettingData } from '@redux/modules/guild';
 import style from 'css/desktop.module.css';
 
 import MenuIcon from './MenuIcon';

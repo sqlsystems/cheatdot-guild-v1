@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatAndSetNumber, formatNumberWithComma } from 'lib/common';
 import { updateDefault } from '@redux/lib/guild/channelSetting/store';
-import { setStoreChannelSetting } from '@redux/modules/guild/guild';
+import { setStoreChannelSetting } from '@redux/modules/guild';
 import axios from 'axios';
 import style from 'css/desktop.module.css';
 
