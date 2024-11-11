@@ -32,7 +32,7 @@ const Menu = ({ menuType, setMenuType }) => {
                             <button type="button" className={menuType === 6 ? style.on : null} onClick={() => setMenuType(6)}>활동정지 멤버 관리</button>
                         </li>
                         <li>
-                            <button type="button" className={menuType === 60 ? style.on : null} onClick={() => setMenuType(60)}>활동정지 멤버 기록</button>
+                            <button type="button" className={menuType === 60 ? style.on : null} onClick={() => setMenuType(60)}>활동정지 기록</button>
                         </li>
                         <li>
                             <button type="button" className={menuType === 7 ? style.on : null} onClick={() => setMenuType(7)}>강제탈퇴 멤버 관리</button>
