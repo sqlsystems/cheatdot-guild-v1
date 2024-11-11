@@ -4,5 +4,5 @@ import activityStop from './activity_stop_member';
 
 export default combineReducers({
     member,
-    activityStop,
+    activity_stop: activityStop,
 });
