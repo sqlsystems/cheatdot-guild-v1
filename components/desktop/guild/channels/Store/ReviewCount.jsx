@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import style from 'css/desktop.module.css';
 
 const ReviewCount = () => {
-    const reviewList = useSelector(state => state.guild_store.view.message.result.review_list);
+    const reviewList = useSelector(state => state.channels.store.view.message.result.review_list);
 
     return (
         <header className={style.title}>

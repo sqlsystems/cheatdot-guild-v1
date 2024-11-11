@@ -7,7 +7,7 @@ import useClickOutside from 'hooks/useClickOutside';
 const ReviewListItem = dynamic(() => import('./ReviewListItem'));
 
 const ReviewList = () => {
-    const reviewList = useSelector(state => state.guild_store.view.message.result.review_list);
+    const reviewList = useSelector(state => state.channels.store.view.message.result.review_list);
 
     const [commentItemEtc, setCommentEtcData] = useState({});
     const [reviewIds, setReviewIds] = useState({
