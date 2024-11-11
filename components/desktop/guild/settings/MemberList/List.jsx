@@ -13,8 +13,8 @@ const ForceLeave = dynamic(() => import('./ForceLeave'), { ssr: false });
 const List = () => {
     const dispatch = useDispatch();
 
-    const totalCount = useSelector(state => state.guild_setting_member.total_count);
-    const params = useSelector(state => state.guild_setting_member.params);
+    const totalCount = useSelector(state => state.settings.member.total_count);
+    const params = useSelector(state => state.settings.member.params);
 
     const [popupData, setPopupData] = useState({});
 

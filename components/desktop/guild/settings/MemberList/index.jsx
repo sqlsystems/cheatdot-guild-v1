@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { useParams } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMembers, setParams } from '@redux/modules/guild/settings/member';
+import { getMemberList } from '@redux/lib/guild/setting/member';
+import { setParams } from '@redux/modules/guild/settings/member';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
@@ -10,20 +10,16 @@ import Search from './Search';
 import List from './List';
 
 const MemberList = () => {
-    const query = useParams();
     const dispatch = useDispatch();
 
-    const params = useSelector(state => state.guild_setting_member.params);
+    const params = useSelector(state => state.settings.member.params);
     const attendWaitingCount = useSelector(state => state.guild.res_data.guild_info.attend_waiting_count);
 
     const innerRef = useRef(null);
 
     useEffect(() => {
         const res = async() => {
-            await dispatch(getMembers({
-                channel: query.channel,
-                params: params
-            }));
+            await dispatch(getMemberList());
 
             if (innerRef.current) {
                 innerRef.current.scrollTop = 0;

@@ -1,5 +1,24 @@
 import axios from 'axios';
 import { alert } from '@redux/modules/alert';
+import { setData } from '@redux/modules/guild/settings/member';
+
+export const getMemberList = () => async(dispatch, getState) => {
+    const channel = getState().query_string.channel;
+    const params = getState().settings.member.params;
+
+    const res = await axios.post('/v4/guild/setting/member/api.php', {
+        cmd: 'get_member_list',
+        data: {
+            channel: channel,
+            params: params
+        }
+    });
+
+    if (res.data.error.msg)
+        return dispatch(alert({ content: res.data.error.msg }));
+
+    await dispatch(setData(res.data));
+}
 
 export const changeMemberLevel = (e) => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;

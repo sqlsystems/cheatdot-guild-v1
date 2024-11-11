@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import dynamic from 'next/dynamic';
 import { useSelector, useDispatch } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/activity_stop_member';
+import { setParams } from '@redux/modules/guild/settings/activity_stop';
 import style from 'css/desktop.module.css';
 
 const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: false });

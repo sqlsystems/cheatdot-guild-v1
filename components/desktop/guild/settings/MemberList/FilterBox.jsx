@@ -6,7 +6,7 @@ import style from 'css/desktop.module.css';
 const FilterBox = () => {
     const dispatch = useDispatch();
 
-    const params = useSelector(state => state.guild_setting_member.params);
+    const params = useSelector(state => state.settings.member.params);
 
     return (
         <div className={style.filter_box}>

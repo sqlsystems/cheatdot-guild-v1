@@ -7,7 +7,7 @@ import ListItem from './ListItem';
 
 const ListTable = ({ setPopupData }) => {
     const dispatch = useDispatch();
-    const members = useSelector(state => state.guild_setting_member.list);
+    const members = useSelector(state => state.settings.member.list);
 
     const [btnRef, setBtnRef] = useState(null);
 

@@ -1,11 +1,9 @@
 import { createAction, handleActions } from 'redux-actions';
-import { pender } from 'redux-pender';
-import * as api from 'api/guild';
 
-const GET_MEMBERS = 'guild/settings/member/GET_MEMBERS';
+const SET_DATA = 'guild/settings/member/SET_DATA';
 const SET_PARAMS = 'guild/settings/member/SET_PARAMS';
 
-export const getMembers = createAction(GET_MEMBERS, api.getMemberList);
+export const setData = createAction(SET_DATA);
 export const setParams = createAction(SET_PARAMS);
 
 const initialState = {
@@ -18,15 +16,12 @@ const initialState = {
 };
 
 export default handleActions({
-    ...pender({
-        type: GET_MEMBERS,
-        onSuccess: (state, action) => {
-            return {
-                ...state,
-                ...action.payload.data.message.result
-            }
+    [SET_DATA]: (state, { payload }) => {
+        return {
+            ...state,
+            ...payload.message.result
         }
-    }),
+    },
     [SET_PARAMS]: (state, action) => {
         return {
             ...state,

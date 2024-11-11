@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { alert } from '@redux/modules/alert';
-import { setData } from '@redux/modules/guild/settings/activity_stop_member';
+import { setData } from '@redux/modules/guild/settings/activity_stop';
 
 export const getActivityStopList = () => async(dispatch, getState) => {
-    const channel = getState().guild.res_data.guild_info.channel;
-    const params = getState().guild_setting_activity_stop_member.params;
+    const channel = getState().query.channel;
+    const params = getState().settings.activity_stop.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
         cmd: 'get_activity_stop_list',

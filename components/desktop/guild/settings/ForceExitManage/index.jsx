@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-import { getForcedExitList } from '@redux/lib/guild/setting/forced_exit_member';
+import { getForcedExitList } from '@redux/lib/guild/setting/forced_exit';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 

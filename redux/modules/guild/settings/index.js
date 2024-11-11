@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import member from './member';
-import activityStop from './activity_stop_member';
+import activity_stop from './activity_stop';
 
 export default combineReducers({
     member,
-    activity_stop: activityStop,
+    activity_stop: activity_stop,
 });

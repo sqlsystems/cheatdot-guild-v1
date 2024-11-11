@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/activity_stop_member';
-import { getActivityStopList, ReleaseStopMember } from '@redux/lib/guild/setting/activity_stop_member';
+import { setParams } from '@redux/modules/guild/settings/activity_stop';
+import { getActivityStopList, ReleaseStopMember } from '@redux/lib/guild/setting/activity_stop';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
@@ -11,7 +11,7 @@ import List from './List';
 const Index = () => {
     const dispatch = useDispatch();
 
-    const state = useSelector(state => state.guild_setting_activity_stop_member.message.result);
+    const state = useSelector(state => state.settings.activity_stop.message.result);
 
     useEffect(() => {
         const fetchData = async() => {
