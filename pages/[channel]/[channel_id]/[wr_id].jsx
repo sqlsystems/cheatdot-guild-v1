@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useSelector } from 'react-redux';
 import { createAxiosInstance } from 'utils/axios';
-import { setViewData } from '@redux/modules/guild/store';
+import { setViewData } from '@redux/modules/guild/channels/store';
 import DeskTopGuild from 'components/desktop/guild';
 
 const BoardView = dynamic(() => import('components/desktop/guild/channels/Board/View'));

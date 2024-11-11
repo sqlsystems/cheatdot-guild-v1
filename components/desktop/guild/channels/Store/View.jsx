@@ -8,7 +8,7 @@ import Review from './Review';
 const View = () => {
     const dispatch = useDispatch();
 
-    const view = useSelector((state) => state.guild_store.view.message.result);
+    const view = useSelector((state) => state.channels.store.view.message.result);
 
     return (
         <>

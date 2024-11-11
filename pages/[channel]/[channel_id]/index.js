@@ -4,8 +4,8 @@ import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { createAxiosInstance } from 'utils/axios';
 import { setChannelData, setMetaData } from '@redux/modules/guild';
-import { setInitBoardData } from '@redux/modules/guild/board';
-import { setInitStoreData } from '@redux/modules/guild/store';
+import { setInitBoardList } from '@redux/modules/guild/channels/board';
+import { setInitStoreData } from '@redux/modules/guild/channels/store';
 import { updateOpenGraph } from '@redux/modules/opengraph';
 import DeskTopGuild from 'components/desktop/guild';
 

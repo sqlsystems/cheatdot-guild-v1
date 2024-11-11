@@ -9,8 +9,8 @@ import SearchForm from '@guild/components/SearchForm';
 const NoResult = dynamic(() => import('components/public/NoResult'));
 
 const List = () => {
-    const data = useSelector(state => state.guild_store.list);
-    const queryString = useSelector(state => state.guild_query_string);
+    const data = useSelector(state => state.channels.store.list);
+    const queryString = useSelector(state => state.query_string);
     const channelTitle = useSelector(state => state.guild.res_data.current_channel_data.name);
 
     const list = data.message.result.list;
