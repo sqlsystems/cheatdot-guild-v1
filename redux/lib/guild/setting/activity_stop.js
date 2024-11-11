@@ -3,7 +3,7 @@ import { alert } from '@redux/modules/alert';
 import { setData } from '@redux/modules/guild/settings/activity_stop';
 
 export const getActivityStopList = () => async(dispatch, getState) => {
-    const channel = getState().query.channel;
+    const channel = getState().query_string.channel;
     const params = getState().settings.activity_stop.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
@@ -22,7 +22,7 @@ export const getActivityStopList = () => async(dispatch, getState) => {
 
 export const ReleaseStopMember = (resetCheckedItems) => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;
-    const chk = getState().guild_setting_activity_stop_member.params.chk;
+    const chk = getState().settings.activity_stop.params.chk;
 
     const chks = Object.keys(chk);
     if (chks.length < 1)

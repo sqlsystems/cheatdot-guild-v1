@@ -9,9 +9,8 @@ const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: f
 const List = (props) => {
     const dispatch = useDispatch();
 
-    const state = useSelector(state => state.guild_setting_activity_stop_member);
+    const state = useSelector(state => state.settings.activity_stop);
 
-    const data = state.message.result;
     const params = state.params;
 
     return (
@@ -47,7 +46,7 @@ const List = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {data.list.length > 0 ? data.list.map(c => {
+                {state.list.length > 0 ? state.list.map(c => {
                     return (
                         <tr key={c.mb_id}>
                             <td>
@@ -89,10 +88,10 @@ const List = (props) => {
                 </tbody>
             </table>
 
-            {data.total_count > 20 &&
+            {state.total_count > 20 &&
                 <Paging
                     page={params.page}
-                    totalCount={data.total_count}
+                    totalCount={state.total_count}
                     rows={20}
                     writePages={10}
                     onClick={e => dispatch(setParams({ page: e }))}

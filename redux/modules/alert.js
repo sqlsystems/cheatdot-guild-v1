@@ -6,12 +6,17 @@ const CLOSE_ALERT = 'alert/CLOSE_ALERT';
 
 export const updateObject = createAction(UPDATE_OBJECT);
 export const alert = createAction(ALERT, e => {
+    document.body.classList.add('alert');
     document.body.style.overflowY = 'hidden';
 
     return e;
 });
 export const closeAlert = createAction(CLOSE_ALERT, e => {
-    document.body.style.overflowY = '';
+    document.body.classList.remove('alert');
+
+    if (!document.body.classList.contains('setting')) {
+        document.body.style.overflowY = '';
+    }
 
     return e;
 });

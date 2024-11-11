@@ -11,7 +11,7 @@ import List from './List';
 const Index = () => {
     const dispatch = useDispatch();
 
-    const state = useSelector(state => state.settings.activity_stop.message.result);
+    const list = useSelector(state => state.settings.activity_stop.list);
 
     useEffect(() => {
         const fetchData = async() => {
@@ -27,7 +27,7 @@ const Index = () => {
         handleSelectAllChange,
         handleItemChange,
         resetCheckedItems
-    } = useCheckboxList(state ? state.list : [], 'mb_id');
+    } = useCheckboxList(list, 'mb_id');
 
     useEffect(() => {
         dispatch(setParams({ chk: checkedItems }));
@@ -52,14 +52,12 @@ const Index = () => {
                         </SearchForm>
                     </div>
 
-                    {state &&
-                        <List
-                            selectAll={selectAll}
-                            checkedItems={checkedItems}
-                            handleSelectAllChange={handleSelectAllChange}
-                            handleItemChange={handleItemChange}
-                        />
-                    }
+                    <List
+                        selectAll={selectAll}
+                        checkedItems={checkedItems}
+                        handleSelectAllChange={handleSelectAllChange}
+                        handleItemChange={handleItemChange}
+                    />
                 </div>
             </div>
         </>
