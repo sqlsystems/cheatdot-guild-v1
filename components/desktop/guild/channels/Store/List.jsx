@@ -31,7 +31,7 @@ const List = () => {
                         {list.map(c => {
                             return (
                                 <li key={c.idx} className={style.product}>
-                                    <Link href={`/guild/${queryString.channel}/${queryString.channel_id}/${c.idx}`}>
+                                    <Link href={`/${queryString.channel}/${queryString.channel_id}/${c.seo_title}`}>
                                         <div className={[style.img_wrap, c.stock_count < 1 ? style.soldout : null].join(' ')}>
                                             {c.thumbnail ?
                                                 <img src={c.thumbnail} alt="썸네일" />
@@ -41,7 +41,7 @@ const List = () => {
                                         </div>
                                     </Link>
 
-                                    <Link href={`/guild/${queryString.channel}/${queryString.channel_id}/${c.idx}`}>
+                                    <Link href={`/${queryString.channel}/${queryString.channel_id}/${c.seo_title}`}>
                                         <div className={style.txt_wrap}>
                                             <span className={style.category}>배틀그라운드</span>
                                             <span className={style.title}>{c.name}</span>
@@ -50,7 +50,7 @@ const List = () => {
                                                 <div className={style.star_box}>
                                                     <span className={style.bg}>
                                                         <div className={style.star} />
-                                                        <span className={style.bar} style={{width: `${c.rating_percent}%`}} />
+                                                        <span className={style.bar} style={{ width: `${c.rating_percent}%` }} />
                                                     </span>
                                                     <span>{c.average_rating}</span>
                                                 </div>

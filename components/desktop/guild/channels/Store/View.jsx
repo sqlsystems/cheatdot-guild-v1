@@ -19,20 +19,20 @@ const View = () => {
                         <div className={style.star_box}>
                             <span className={style.bg}>
                                 <div className={style.star} />
-                                <span className={style.bar} style={{width: `${view.rating_percent}%`}} />
+                                <span className={style.bar} style={{ width: `${view.rating_percent}%` }} />
                             </span>
                             <span>{view.average_rating}</span>
                         </div>
-                        
+
                         <div className={style.price}>
-                            <span className={style.percent}>50%</span>
+                            {view.discount_rate > 0 && <span className={style.percent}>{view.discount_rate}%</span>}
                             <div className={style.cp}>
-                                <span className={style.regular_price}>100,000</span>
+                                {view.discount_rate > 0 && <span className={style.regular_price}>{view.price}</span>}
                                 {view.price}
                                 <img src="/img/cp.png" width={24} height={24} alt="CP" />
                             </div>
                         </div>
-                        
+
                         {view.stock_count &&
                             <span className={style.rest}>
                                 남은수량 <strong>{view.stock_count}</strong>개
@@ -45,21 +45,20 @@ const View = () => {
 
                 <div className={style.content}>
                     <div dangerouslySetInnerHTML={{ __html: view.content }} />
-                    
+
                     <div className={style.item_info}>
                         <div className={style.star_box}>
                             <span className={style.bg}>
                                 <div className={style.star} />
-                                <span className={style.bar}
-                                      style={{ width: `${view.rating_percent}%` }} />
+                                <span className={style.bar} style={{ width: `${view.rating_percent}%` }} />
                             </span>
                             <span>{view.average_rating}</span>
                         </div>
                         
                         <div className={style.price}>
-                            <span className={style.percent}>50%</span>
+                            {view.discount_rate > 0 && <span className={style.percent}>{view.discount_rate}%</span>}
                             <div className={style.cp}>
-                                <span className={style.regular_price}>100,000</span>
+                                {view.discount_rate > 0 && <span className={style.regular_price}>{view.price}</span>}
                                 {view.price}
                                 <img src="/img/cp.png" width={24} height={24} alt="CP" />
                             </div>

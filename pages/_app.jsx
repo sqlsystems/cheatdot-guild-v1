@@ -9,6 +9,7 @@ import axios from 'axios';
 import { setInitData, setDeviceInfo } from '@redux/modules/global';
 import { getMyInfo } from '@redux/modules/member';
 import { setInitData as setGuildInitData } from '@redux/modules/guild/guild';
+import { updateQueryString } from '@redux/modules/guild/query_string';
 import Root from 'components/Root';
 
 import 'css/reset.css';
@@ -107,18 +108,20 @@ MyApp.getInitialProps = async({ Component, ctx }) => {
         await dispatch(setDeviceInfo({ is_mobile: isMobile, os: md.os() }));
     }
 
-    if (((ctx.req) && ctx.pathname.includes('/[channel]'))) {
-        // await ctx.reduxStore.dispatch(updateQueryString(ctx.query, ctx.asPath));
+    if (ctx.pathname.includes('/[channel]')) {
+        await ctx.reduxStore.dispatch(updateQueryString(ctx.query, ctx.asPath));
 
-        const res = await axiosServer.post('/v4/guild/api.php', {
-            cmd: 'get_init_data',
-            data: {
-                channel: ctx.query.channel,
-                channel_id: ctx.query.channel_id,
-            }
-        });
+        if (ctx.req) {
+            const res = await axiosServer.post('/v4/guild/api.php', {
+                cmd: 'get_init_data',
+                data: {
+                    channel: ctx.query.channel,
+                    channel_id: ctx.query.channel_id,
+                }
+            });
 
-        await ctx.reduxStore.dispatch(setGuildInitData(res.data));
+            await ctx.reduxStore.dispatch(setGuildInitData(res.data));
+        }
     }
 
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};

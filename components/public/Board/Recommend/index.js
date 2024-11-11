@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { gallRecommend } from 'redux/lib/board/board_view';
+import { gallRecommend } from '@redux/lib/board/board_view';
 import { numberFormat } from 'lib/common';
 
 const Goods = ({ style, isGood, isNoGood, goodCount, noGoodCount, selfGood }) => {

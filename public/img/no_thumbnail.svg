@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="238" height="152" viewBox="0 0 238 152">
+  <g id="그룹_34" data-name="그룹 34" transform="translate(-4296 -3732)">
+    <rect id="사각형_256" data-name="사각형 256" width="238" height="152" transform="translate(4296 3732)" fill="rgba(245,246,247,0)"/>
+    <text id="이미지_없음" data-name="이미지 없음" transform="translate(4415 3833)" fill="#a6a8ad" font-size="14" font-family="SpoqaHanSansNeo-Medium, Spoqa Han Sans Neo" font-weight="500"><tspan x="-33.768" y="0">이미지 없음</tspan></text>
+    <g id="emoji-expressionless" transform="translate(4400 3778)">
+      <path id="패스_14" data-name="패스 14" d="M15,28.125A13.125,13.125,0,1,1,28.125,15,13.125,13.125,0,0,1,15,28.125ZM15,30A15,15,0,1,0,0,15,15,15,0,0,0,15,30Z" fill="#a6a8ad"/>
+      <path id="패스_15" data-name="패스 15" d="M4,14.437a.937.937,0,0,1,.937-.937H18.062a.937.937,0,1,1,0,1.875H4.937A.937.937,0,0,1,4,14.437Zm0-7.5A.937.937,0,0,1,4.937,6h3.75a.937.937,0,0,1,0,1.875H4.937A.937.937,0,0,1,4,6.937Zm9.375,0A.937.937,0,0,1,14.312,6h3.75a.937.937,0,0,1,0,1.875h-3.75A.937.937,0,0,1,13.375,6.937Z" transform="translate(3.5 5.25)" fill="#a6a8ad"/>
+    </g>
+  </g>
+</svg>
