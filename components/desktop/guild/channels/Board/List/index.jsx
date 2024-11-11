@@ -7,7 +7,7 @@ import ListForm from './ListForm';
 
 const List = () => {
     const channelTitle = useSelector(state => state.guild.res_data.current_channel_data.name);
-    const queryString = useSelector(state => state.guild_query_string);
+    const queryString = useSelector(state => state.query_string);
 
     return (
         <div className={style.layout_box}>

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { createAxiosInstance } from 'utils/axiosServer';
+import { createAxiosInstance } from 'utils/axios';
 import DeskTopGuild from 'components/desktop/guild';
 import DeskTopUserHome from 'components/desktop/guild/members';
 
@@ -16,7 +16,7 @@ const UserHome = ({ pageProps }) => {
     return (
         <>
             <DeskTopGuild>
-                {/*{renderContent()}*/}
+                {renderContent()}
             </DeskTopGuild>
         </>
     );

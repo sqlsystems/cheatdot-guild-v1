@@ -1,7 +1,7 @@
 import React, { memo, useState, useRef } from 'react';
 import Head from 'next/head';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateMyInfo } from 'redux/lib/guild';
+import { updateMyInfo } from '@redux/lib/guild';
 import useClickOutside from 'hooks/useClickOutside';
 
 import EditComponent from 'components/desktop/guild/members/Edit';

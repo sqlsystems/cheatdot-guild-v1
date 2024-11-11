@@ -7,7 +7,7 @@ const NoResult = dynamic(() => import('components/public/NoResult'));
 const ListItem = dynamic(() => import('./ListItem'));
 
 const ListForm = () => {
-    const data = useSelector(state => state.guild_board_list.message.result);
+    const data = useSelector(state => state.channels.board.list.message.result);
 
     return (
         <div className={style.table}>

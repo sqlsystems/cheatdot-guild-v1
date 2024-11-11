@@ -8,8 +8,8 @@ const CKEditor = dynamic(() => import('plugin/editor/CKEditor'), { ssr: false })
 
 const Write = () => {
     const dispatch = useDispatch();
-    const queryString = useSelector(state => state.guild_query_string);
-    const isAdmin = useSelector(state => state.guild.res_data.flags.is_admin);
+    const queryString = useSelector(state => state.query_string);
+    const isAdmin = useSelector(state => state.guild.res_data.member.is_admin);
 
     const [wr, setWr] = useState({
         w: queryString.w,

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { alert } from '@redux/modules/alert';
 
 export const buyProduct = (e) => async(dispatch, getState) => {
-    const queryString = getState().guild_query_string;
+    const queryString = getState().query_string;
 
     const channel = queryString.channel;
     const channelId = queryString.channel_id;
@@ -32,7 +32,7 @@ export const buyProduct = (e) => async(dispatch, getState) => {
 }
 
 export const reviewUpdate = (e) => async(dispatch, getState) => {
-    const queryString = getState().guild_query_string;
+    const queryString = getState().query_string;
 
     const channel = queryString.channel;
     const channelId = queryString.channel_id;

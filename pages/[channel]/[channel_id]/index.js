@@ -82,7 +82,7 @@ ChannelID.getInitialProps = async(ctx) => {
                 }
             });
 
-            await ctx.reduxStore.dispatch(setInitBoardData(res.data));
+            await ctx.reduxStore.dispatch(setInitBoardList(res.data));
             break;
         case 4:
             res = await axios.post('/v4/guild/channels/store/api.php', {

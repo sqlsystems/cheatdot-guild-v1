@@ -5,7 +5,7 @@ import style from 'css/desktop.module.css';
 import {useSelector} from "react-redux";
 
 const ListItem = ({ data }) => {
-    const queryString = useSelector(state => state.guild_query_string);
+    const queryString = useSelector(state => state.query_string);
 
     return (
         <tr>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { createAxiosInstance } from 'utils/axiosServer';
+import { createAxiosInstance } from 'utils/axios';
 import { updateOpenGraph } from 'redux/modules/opengraph';
 import DeskTopGuild from 'components/desktop/guild';
 import DeskTopBoardWrite from 'components/desktop/guild/channels/Board/Write';

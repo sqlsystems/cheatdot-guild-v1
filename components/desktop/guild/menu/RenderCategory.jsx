@@ -9,7 +9,7 @@ const ChannelMenuItem = dynamic(() => import('./RenderSubMenuList'));
 
 const RenderCategory = () => {
     const menus = useSelector(state => state.guild.res_data.menus);
-    const isAdmin = useSelector(state => state.guild.res_data.flags.is_admin);
+    const isAdmin = useSelector(state => state.guild.res_data.member.is_admin);
 
     return (
         <div className={style.category_wrap}>

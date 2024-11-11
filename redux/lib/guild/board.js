@@ -3,7 +3,7 @@ import { alert } from '@redux/modules/alert';
 
 export const writeUpdate = (e) => async(dispatch, getState) => {
     try {
-        const queryString = getState().guild_query_string;
+        const queryString = getState().query_string;
 
         const filter = await axios.post('/v4/guild/channels/board/api.php', {
             cmd: 'content_filtering',
