@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import useSettingPage from 'hooks/guild/useSettingPage';
 import style from 'css/desktop.module.css';
@@ -7,7 +7,7 @@ import Menu from './Menu';
 import Default from './Default';
 
 const MemberList = dynamic(() => import('./MemberList'), { ssr: false });
-const Manager = dynamic(() => import('./Manager'), { ssr: false });
+const StaffManage = dynamic(() => import('./StaffManage'), { ssr: false });
 const ActivityStopManage = dynamic(() => import('./ActivityStopManage'), { ssr: false });
 const ActivityStopLog = dynamic(() => import('./ActivityStopLog'), { ssr: false });
 const ForceExitManage = dynamic(() => import('./ForceExitManage'), { ssr: false });
@@ -18,36 +18,36 @@ const ProductBuyHistory = dynamic(() => import('./ProductBuyHistory'), { ssr: fa
 const AuditLog = dynamic(() => import('./AuditLog'), { ssr: false });
 
 const GuildSetting = ({ onClose }) => {
-    const [menuType, setMenuType] = useState(0);
+    const [menuType, setMenuType] = useState(100000);
 
     useSettingPage(e => onClose());
 
-    const renderSettingPage = () => {
+    const renderSettingPage = useMemo(() => {
         switch (menuType) {
-            case 0:
+            case 100000:
                 return <Default />;
-            case 1:
+            case 200000:
                 return <MemberList />;
-            case 2:
-                return <Manager />;
-            case 6:
+            case 200100:
+                return <StaffManage />;
+            case 200200:
                 return <ActivityStopManage />;
-            case 60:
+            case 200300:
                 return <ActivityStopLog />;
-            case 7:
+            case 200400:
                 return <ForceExitManage />;
-            case 70:
+            case 200500:
                 return <ManageJoinRefusal />;
-            case 3:
+            case 300000:
                 return <CostInfo />;
-            case 4:
+            case 300100:
                 return <CostList />;
-            case 8:
+            case 300200:
                 return <ProductBuyHistory />;
-            case 5:
+            case 400000:
                 return <AuditLog />;
         }
-    }
+    }, [menuType]);
 
     return (
         <div className={style.setting_pop}>
@@ -55,7 +55,7 @@ const GuildSetting = ({ onClose }) => {
                 <Menu menuType={menuType} setMenuType={setMenuType} />
 
                 <div className={style.content}>
-                    {renderSettingPage()}
+                    {renderSettingPage}
 
                     <button type="button" className={style.btn_close} onClick={() => onClose()}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="12.121" height="12.121"
