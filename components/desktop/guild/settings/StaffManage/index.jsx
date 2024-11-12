@@ -1,4 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { getStaffList } from '@redux/lib/guild/setting/staff_manage';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
@@ -7,6 +9,16 @@ import List from './List';
 import AddAuth from './AddAuth';
 
 const StaffManage = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const res = async() => {
+            await dispatch(getStaffList());
+        }
+
+        res();
+    }, []);
+
     return (
         <>
             <ConfigTitle title="관리자 설정">

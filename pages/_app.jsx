@@ -97,10 +97,10 @@ MyApp.getInitialProps = async({ Component, ctx }) => {
             secure: true
         });
 
-        const requestMyInfo = await axiosServer.post('/v4/member/api.php', {
-            cmd: 'get_my_info'
-        });
-        await ctx.reduxStore.dispatch(getMyInfo({ data: requestMyInfo.data }));
+        // const requestMyInfo = await axiosServer.post('/v4/guild/api.php', {
+        //     cmd: 'get_my_info'
+        // });
+        // await ctx.reduxStore.dispatch(getMyInfo({ data: requestMyInfo.data }));
 
         const md = new MobileDetect(ctx.req?.headers['user-agent']);
         const isMobile = !!md.mobile();

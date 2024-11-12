@@ -13,6 +13,7 @@ const ListItem = ({ item, _btnRef, setBtnRef, setPopupData, changeMemberLevel, s
                 <div className={style.profile}>
                     <div className={style.profile_box}>
                         <span className={style.nick}>{item.mb_nick}</span>
+                        <span>({item.mb_id})</span>
                     </div>
                 </div>
             </td>

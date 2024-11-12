@@ -9,7 +9,7 @@ const Menu = ({ menuType, setMenuType }) => {
     return (
         <div className={style.menu_wrap}>
             <div className={[style.inner, style.scroll_custom].join(' ')}>
-                {menus.map(menu => {
+                {menus.auth_menu.map(menu => {
                     return (
                         <div key={menu.name}>
                             <span className={style.tit}>{menu.name}</span>

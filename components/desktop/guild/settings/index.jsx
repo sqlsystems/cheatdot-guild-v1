@@ -1,11 +1,12 @@
 import React, { useState, memo, useMemo } from 'react';
 import dynamic from 'next/dynamic';
+import { useSelector } from 'react-redux';
 import useSettingPage from 'hooks/guild/useSettingPage';
 import style from 'css/desktop.module.css';
 
 import Menu from './Menu';
-import Default from './Default';
 
+const Default = dynamic(() => import('./Default'), { ssr: false });
 const MemberList = dynamic(() => import('./MemberList'), { ssr: false });
 const StaffManage = dynamic(() => import('./StaffManage'), { ssr: false });
 const ActivityStopManage = dynamic(() => import('./ActivityStopManage'), { ssr: false });
@@ -18,7 +19,8 @@ const ProductBuyHistory = dynamic(() => import('./ProductBuyHistory'), { ssr: fa
 const AuditLog = dynamic(() => import('./AuditLog'), { ssr: false });
 
 const GuildSetting = ({ onClose }) => {
-    const [menuType, setMenuType] = useState(100000);
+    const member = useSelector(state => state.guild.res_data.member);
+    const [menuType, setMenuType] = useState(member.is_auth ? Number(Object.keys(member.auth)[0]) : 100000);
 
     useSettingPage(e => onClose());
 

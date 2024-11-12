@@ -1,6 +1,6 @@
 import React, { memo, useEffect, useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-import { getForcedExitList } from '@redux/lib/guild/setting/forced_exit';
+import { getForcedExitList, JoinRefusalClear } from '@redux/lib/guild/setting/forced_exit';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
@@ -42,8 +42,8 @@ const Index = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems))}>가입불가 해제</button>
                             <button type="button" className={[style.btn, style.btn_gray_line].join(' ')}>가입불가</button>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')}>가입불가 해제</button>
                         </div>
 
                         <SearchForm />
