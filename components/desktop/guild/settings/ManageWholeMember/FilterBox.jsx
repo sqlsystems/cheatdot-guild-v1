@@ -1,12 +1,12 @@
 import React, { memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/member';
+import { setParams } from '@redux/modules/guild/settings/manage_whole_member';
 import style from 'css/desktop.module.css';
 
 const FilterBox = () => {
     const dispatch = useDispatch();
 
-    const params = useSelector(state => state.settings.member.params);
+    const params = useSelector(state => state.settings.manage_whole_member.params);
 
     return (
         <div className={style.filter_box}>

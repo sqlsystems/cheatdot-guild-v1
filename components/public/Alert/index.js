@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useSelector } from 'react-redux';
 import dynamic from 'next/dynamic';
 
@@ -12,4 +12,4 @@ const Alert = () => {
     );
 }
 
-export default Alert;
+export default memo(Alert);

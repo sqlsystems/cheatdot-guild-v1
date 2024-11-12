@@ -1,25 +1,28 @@
 import axios from 'axios';
 import { alert } from '@redux/modules/alert';
+import { setData } from '@redux/modules/guild/settings/manage_forced_secession';
 
-export const getForcedExitList = () => async(dispatch, getState) => {
+export const getForcedSecession = () => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;
+    const params = getState().settings.manage_forced_secession.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
-        cmd: 'get_forced_exit_list',
+        cmd: 'get_forced_secession',
         data: {
             channel: channel,
-            params: {}
+            params: params
         }
     });
 
-    if (!res.data.error.msg) {
-        return res.data.message.result;
-    }
+    if (res.data.error.msg)
+        return dispatch(alert({ content: res.data.error.msg }));
+
+    await dispatch(setData(res.data));
 }
 
 export const JoinRefusalClear = (resetCheckedItems) => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;
-    const chk = getState().settings.activity_stop.params.chk;
+    const chk = getState().settings.manage_forced_secession.params.chk;
 
     const chks = Object.keys(chk);
     if (chks.length < 1)
@@ -41,7 +44,7 @@ export const JoinRefusalClear = (resetCheckedItems) => async(dispatch, getState)
             if (res.data.error.msg)
                 return dispatch(alert({ content: res.data.error.msg }));
 
-            dispatch(getForcedExitList());
+            dispatch(getForcedSecession());
 
             resetCheckedItems();
 

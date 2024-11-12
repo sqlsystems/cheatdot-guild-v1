@@ -12,6 +12,6 @@ export default combineReducers({
     member,
     alert,
     opengraph,
-    guild: guild,
+    guild,
     ...guildReducers,
 });

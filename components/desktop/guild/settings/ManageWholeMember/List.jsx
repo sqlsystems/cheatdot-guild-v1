@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useSelector, useDispatch } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/member';
+import { setParams } from '@redux/modules/guild/settings/manage_whole_member';
 import style from 'css/desktop.module.css';
 
 import ListTable from './ListTable';
@@ -13,8 +13,7 @@ const ForceLeave = dynamic(() => import('./ForceLeave'), { ssr: false });
 const List = () => {
     const dispatch = useDispatch();
 
-    const totalCount = useSelector(state => state.settings.member.total_count);
-    const params = useSelector(state => state.settings.member.params);
+    const state = useSelector(state => state.settings.manage_whole_member);
 
     const [popupData, setPopupData] = useState({});
 
@@ -23,10 +22,10 @@ const List = () => {
             <div className={style.table}>
                 <ListTable setPopupData={setPopupData} />
 
-                {totalCount > 20 &&
+                {state.total_count > 20 &&
                     <Paging
-                        page={params.page}
-                        totalCount={totalCount}
+                        page={state.params.page}
+                        totalCount={state.total_count}
                         rows={20}
                         writePages={10}
                         onClick={e => dispatch(setParams({ page: e }))}

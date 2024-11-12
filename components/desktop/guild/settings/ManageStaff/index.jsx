@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getStaffList } from '@redux/lib/guild/setting/staff_manage';
+import { getStaffList } from '@redux/lib/guild/setting/manage_staff';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';

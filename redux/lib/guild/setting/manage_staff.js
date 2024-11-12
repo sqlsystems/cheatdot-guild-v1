@@ -1,10 +1,10 @@
 import { alert } from '@redux/modules/alert';
-import { setData } from '@redux/modules/guild/settings/activity_stop';
+import { setData } from '@redux/modules/guild/settings/manage_activity_stop_member';
 import axios from 'axios';
 
 export const getStaffList = () => async(dispatch, getState) => {
     const channel = getState().query_string.channel;
-    const params = getState().settings.member.params;
+    const params = getState().settings.manage_whole_member.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
         cmd: 'get_staff_list',

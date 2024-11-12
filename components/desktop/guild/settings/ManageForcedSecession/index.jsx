@@ -1,29 +1,29 @@
-import React, { memo, useEffect, useState, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
-import { getForcedExitList, JoinRefusalClear } from '@redux/lib/guild/setting/forced_exit';
+import React, { memo, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getForcedSecession, JoinRefusalClear } from '@redux/lib/guild/setting/manage_forced_secession';
 import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
+import ConfigTitle from '@guild/components/ConfigTitle';
 import SearchForm from '@guild/components/SearchForm';
 import List from './List';
 
 const Index = () => {
     const dispatch = useDispatch();
 
-    const [data, setData] = useState({});
+    const list = useSelector(state => state.settings.manage_forced_secession.list);
+    const page = useSelector(state => state.settings.manage_forced_secession.params.page);
 
     useEffect(() => {
         const fetchData = async() => {
-            const res = await dispatch(getForcedExitList());
-
-            setData(res);
+            await dispatch(getForcedSecession());
         }
 
         fetchData();
-    }, []);
+    }, [page]);
 
-    const memoizedList = useMemo(() => (data.list ? data.list : []), [data.list]);
+    const memoizedList = useMemo(() => (list), [list]);
 
     const {
         selectAll,
@@ -39,9 +39,7 @@ const Index = () => {
 
     return (
         <>
-            <div className={style.head_tit}>
-                <h2>강제탈퇴 멤버 관리</h2>
-            </div>
+            <ConfigTitle title="강제탈퇴 멤버 관리" />
 
             <div className={[style.inner, style.scroll_custom].join(' ')}>
                 <div className={style.layout_box}>
@@ -54,15 +52,12 @@ const Index = () => {
                         <SearchForm />
                     </div>
 
-                    {data.list &&
-                        <List
-                            data={data}
-                            selectAll={selectAll}
-                            checkedItems={checkedItems}
-                            handleSelectAllChange={handleSelectAllChange}
-                            handleItemChange={handleItemChange}
-                        />
-                    }
+                    <List
+                        selectAll={selectAll}
+                        checkedItems={checkedItems}
+                        handleSelectAllChange={handleSelectAllChange}
+                        handleItemChange={handleItemChange}
+                    />
                 </div>
             </div>
         </>

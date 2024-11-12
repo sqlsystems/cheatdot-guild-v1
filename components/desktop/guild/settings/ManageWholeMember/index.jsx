@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMemberList } from '@redux/lib/guild/setting/member';
-import { setParams } from '@redux/modules/guild/settings/member';
+import { getMemberList } from '@redux/lib/guild/setting/manage_whole_member';
+import { setParams } from '@redux/modules/guild/settings/manage_whole_member';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
@@ -12,7 +12,7 @@ import List from './List';
 const MemberList = () => {
     const dispatch = useDispatch();
 
-    const params = useSelector(state => state.settings.member.params);
+    const page = useSelector(state => state.settings.manage_whole_member.params.page);
     const attendWaitingCount = useSelector(state => state.guild.res_data.guild_info.attend_waiting_count);
 
     const innerRef = useRef(null);
@@ -27,7 +27,7 @@ const MemberList = () => {
         }
 
         res();
-    }, [params]);
+    }, [page]);
 
     return (
         <>

@@ -1,10 +1,18 @@
 import React, { memo } from 'react';
 import dynamic from 'next/dynamic';
+import { useDispatch, useSelector } from 'react-redux';
+import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
 import style from 'css/desktop.module.css';
 
 const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: false });
 
 const List = (props) => {
+    const dispatch = useDispatch();
+
+    const state = useSelector(state => state.settings.manage_forced_secession);
+
+    const params = state.params;
+
     return (
         <div className={style.table}>
             <table>
@@ -38,7 +46,7 @@ const List = (props) => {
                 </tr>
                 </thead>
                 <tbody>
-                {props.data.list.length > 0 ? props.data.list.map(c => {
+                {state.list.length > 0 ? state.list.map(c => {
                     return (
                         <tr key={c.mb_id}>
                             <td>
@@ -53,7 +61,7 @@ const List = (props) => {
                                 </div>
                             </td>
                             <td className={style.left}>
-                                <span>{c.mb_id}</span>
+                                <span>{c.mask_mb_id}</span>
                             </td>
                             <td className={style.left}>
                                 <span>{c.reason}</span>
@@ -66,7 +74,7 @@ const List = (props) => {
                                 <span>({c.manager_id})</span>
                             </td>
                             <td>
-                                <span className={c.is_re_join ? style.red : null}>{c.is_re_join ? '가입불가' : '-'}</span>
+                                <span className={!c.is_re_join ? style.red : null}>{!c.is_re_join ? '가입불가' : '-'}</span>
                             </td>
                         </tr>
                     );
@@ -79,14 +87,13 @@ const List = (props) => {
                 </tbody>
             </table>
 
-            {props.data.total_count > 20 &&
+            {state.total_count > 20 &&
                 <Paging
-                    page={1}
-                    totalCount={props.data.total_count}
+                    page={params.page}
+                    totalCount={state.total_count}
                     rows={20}
                     writePages={10}
-                    onClick={e => {
-                    }}
+                    onClick={e => dispatch(setParams({ page: e }))}
                 />
             }
         </div>

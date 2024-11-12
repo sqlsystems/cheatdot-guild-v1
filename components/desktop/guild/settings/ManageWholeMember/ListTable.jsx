@@ -1,13 +1,13 @@
 import React, { memo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeMemberLevel, setMemberAttendStatus } from '@redux/lib/guild/setting/member';
+import { changeMemberLevel, setMemberAttendStatus } from '@redux/lib/guild/setting/manage_whole_member';
 import useClickOutside from 'hooks/useClickOutside';
 
 import ListItem from './ListItem';
 
 const ListTable = ({ setPopupData }) => {
     const dispatch = useDispatch();
-    const members = useSelector(state => state.settings.member.list);
+    const members = useSelector(state => state.settings.manage_whole_member.list);
 
     const [btnRef, setBtnRef] = useState(null);
 

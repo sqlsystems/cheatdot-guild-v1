@@ -1,17 +1,19 @@
 import React, { memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/activity_stop';
-import { getActivityStopList, ReleaseStopMember } from '@redux/lib/guild/setting/activity_stop';
+import { setParams } from '@redux/modules/guild/settings/manage_activity_stop_member';
+import { getActivityStopList, ReleaseStopMember } from '@redux/lib/guild/setting/manage_activity_stop_member';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
+import ConfigTitle from '@guild/components/ConfigTitle';
 import SearchForm from '@guild/components/SearchForm';
 import List from './List';
 
 const Index = () => {
     const dispatch = useDispatch();
 
-    const list = useSelector(state => state.settings.activity_stop.list);
+    const list = useSelector(state => state.settings.manage_activity_stop_member.list);
+    const page = useSelector(state => state.settings.manage_activity_stop_member.params.page);
 
     useEffect(() => {
         const fetchData = async() => {
@@ -19,7 +21,7 @@ const Index = () => {
         }
 
         fetchData();
-    }, []);
+    }, [page]);
 
     const {
         selectAll,
@@ -35,9 +37,7 @@ const Index = () => {
 
     return (
         <>
-            <div className={style.head_tit}>
-                <h2>활동정지 멤버 관리</h2>
-            </div>
+            <ConfigTitle title="활동정지 멤버 관리" />
 
             <div className={[style.inner, style.scroll_custom].join(' ')}>
                 <div className={style.layout_box}>

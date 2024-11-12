@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { memberActivityStop } from '@redux/lib/guild/setting/member';
+import { memberActivityStop } from '@redux/lib/guild/setting/manage_whole_member';
 import Popup from 'components/public/Popup';
 import style from 'css/desktop.module.css';
 

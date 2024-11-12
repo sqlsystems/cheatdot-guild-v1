@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateAuth } from '@redux/lib/guild/setting/staff_manage';
+import { updateAuth } from '@redux/lib/guild/setting/manage_staff';
 import menus from 'dist/guild_admin_menus.json';
 import style from 'css/desktop.module.css';
 

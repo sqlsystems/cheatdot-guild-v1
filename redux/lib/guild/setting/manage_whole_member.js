@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { alert } from '@redux/modules/alert';
-import { setData } from '@redux/modules/guild/settings/member';
+import { setData } from '@redux/modules/guild/settings/manage_whole_member';
 
 export const getMemberList = () => async(dispatch, getState) => {
     const channel = getState().query_string.channel;
-    const params = getState().settings.member.params;
+    const params = getState().settings.manage_whole_member.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
         cmd: 'get_member_list',
@@ -114,6 +114,8 @@ export const memberForceExit = (e) => async(dispatch, getState) => {
                 return dispatch(alert({ content: res.data.error.msg }));
 
             e.setPopupData({});
+
+            dispatch(getMemberList());
 
             return true;
         }

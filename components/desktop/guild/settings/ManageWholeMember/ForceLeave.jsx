@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { memberForceExit } from '@redux/lib/guild/setting/member';
+import { memberForceExit } from '@redux/lib/guild/setting/manage_whole_member';
 import Popup from 'components/public/Popup';
 import style from 'css/desktop.module.css';
 
@@ -52,7 +52,7 @@ const ForceLeave = ({ mb, setPopupData }) => {
                 <div className={style.radio_wrap}>
                     <div className={style.chk_box}>
                         <input type="checkbox" id="re_join" onChange={e => setReJoin(!e.target.checked)} />
-                        <label htmlFor="re_join">우리 길드에 재가입 불가하도록 합니다.</label>
+                        <label htmlFor="re_join">우리 서버에 재가입 불가하도록 합니다.</label>
                     </div>
                 </div>
 
