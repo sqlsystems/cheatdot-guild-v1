@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import style from 'css/desktop.module.css';
 
-const ProductBuyHistory = () => {
+const ViewProductBuyHistory = () => {
     return (
         <>
             <div className={style.head_tit}>
@@ -88,4 +88,4 @@ const ProductBuyHistory = () => {
     );
 }
 
-export default memo(ProductBuyHistory);
+export default memo(ViewProductBuyHistory);

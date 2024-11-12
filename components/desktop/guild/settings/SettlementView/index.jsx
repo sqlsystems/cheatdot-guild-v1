@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
 
-const CostList = () => {
+const SettlementView = () => {
     return (
         <>
             <ConfigTitle title="정산 내역" />
@@ -75,4 +75,4 @@ const CostList = () => {
     );
 }
 
-export default CostList;
+export default memo(SettlementView);

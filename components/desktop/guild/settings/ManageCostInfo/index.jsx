@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
 
-const CostInfo = () => {
+const ManageCostInfo = () => {
     return (
         <>
             <ConfigTitle title="정산 정보" />
@@ -98,4 +98,4 @@ const CostInfo = () => {
     );
 }
 
-export default CostInfo;
+export default memo(ManageCostInfo);

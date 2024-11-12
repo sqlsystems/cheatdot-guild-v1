@@ -6,17 +6,17 @@ import style from 'css/desktop.module.css';
 
 import Menu from './Menu';
 
-const Default = dynamic(() => import('./Default'), { ssr: false });
-const MemberList = dynamic(() => import('./MemberList'), { ssr: false });
+const Default = dynamic(() => import('./ManageBaseInformation'), { ssr: false });
+const MemberList = dynamic(() => import('./ManageWholeMember'), { ssr: false });
 const StaffManage = dynamic(() => import('./ManageStaff'), { ssr: false });
-const ActivityStopManage = dynamic(() => import('./ActivityStopManage'), { ssr: false });
-const ActivityStopLog = dynamic(() => import('./ActivityStopLog'), { ssr: false });
+const ActivityStopManage = dynamic(() => import('./ManageActivityStopMember'), { ssr: false });
+const ActivityStopLog = dynamic(() => import('./ManageActivityStopMemberLog'), { ssr: false });
 const ForceExitManage = dynamic(() => import('./ManageForcedSecession'), { ssr: false });
 const ManageJoinRefusal = dynamic(() => import('./ManageJoinRefusal'), { ssr: false });
-const CostInfo = dynamic(() => import('./CostInfo'), { ssr: false });
-const CostList = dynamic(() => import('./CostList'), { ssr: false });
-const ProductBuyHistory = dynamic(() => import('./ProductBuyHistory'), { ssr: false });
-const AuditLog = dynamic(() => import('./AuditLog'), { ssr: false });
+const CostInfo = dynamic(() => import('./ManageCostInfo'), { ssr: false });
+const CostList = dynamic(() => import('./SettlementView'), { ssr: false });
+const ProductBuyHistory = dynamic(() => import('./ViewProductBuyHistory'), { ssr: false });
+const AuditLog = dynamic(() => import('./AuditLogView'), { ssr: false });
 
 const GuildSetting = ({ onClose }) => {
     const member = useSelector(state => state.guild.res_data.member);
