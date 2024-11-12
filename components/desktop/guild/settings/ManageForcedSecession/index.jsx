@@ -1,6 +1,7 @@
 import React, { memo, useEffect, useState, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { getForcedExitList, JoinRefusalClear } from '@redux/lib/guild/setting/forced_exit';
+import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
@@ -31,6 +32,10 @@ const Index = () => {
         handleItemChange,
         resetCheckedItems,
     } = useCheckboxList(memoizedList, 'mb_id');
+
+    useEffect(() => {
+        dispatch(setParams({ chk: checkedItems }));
+    }, [checkedItems]);
 
     return (
         <>

@@ -8,10 +8,10 @@ import Menu from './Menu';
 
 const Default = dynamic(() => import('./Default'), { ssr: false });
 const MemberList = dynamic(() => import('./MemberList'), { ssr: false });
-const StaffManage = dynamic(() => import('./StaffManage'), { ssr: false });
+const StaffManage = dynamic(() => import('./ManageStaff'), { ssr: false });
 const ActivityStopManage = dynamic(() => import('./ActivityStopManage'), { ssr: false });
 const ActivityStopLog = dynamic(() => import('./ActivityStopLog'), { ssr: false });
-const ForceExitManage = dynamic(() => import('./ForceExitManage'), { ssr: false });
+const ForceExitManage = dynamic(() => import('./ManageForcedSecession'), { ssr: false });
 const ManageJoinRefusal = dynamic(() => import('./ManageJoinRefusal'), { ssr: false });
 const CostInfo = dynamic(() => import('./CostInfo'), { ssr: false });
 const CostList = dynamic(() => import('./CostList'), { ssr: false });
