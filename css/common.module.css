@@ -33,6 +33,7 @@
 
 .chk_wrap {display:flex;align-items:center;gap:0 14px}
 .chk_box input {display:none}
+.chk_box input:disabled ~ label {color:var(--gray-40)}
 .chk_box input:checked ~ label {color:var(--gray-99)}
 .chk_box input:checked ~ label::before {border:0;background:var(--gray-99) url('../public/img/check.svg') no-repeat center/10px}
 .chk_box label {display:inline-flex;align-items:center;font-size:14px;color:var(--gray-70);cursor:pointer}

@@ -805,7 +805,7 @@
 .setting_pop .content .head_tit p {font-size:14px;color:var(--gray-60);margin-top:8px}
 .setting_pop .content .head_tit p em {color:var(--primary-50)}
 .setting_pop .content .head_tit .btn_wrap {margin-left:auto}
-.setting_pop .content .inner {width:calc(100% + 20px);height:100%;padding:10px 10px 60px;overflow-y:auto;margin-left:-10px}
+.setting_pop .content > .inner {width:calc(100% + 20px);height:100%;padding:10px 10px 60px;overflow-y:auto;margin-left:-10px}
 .setting_pop .content .inner > .top {display:flex;align-items:center;margin:-8px 0 16px}
 .setting_pop .content .inner > .top .btn_wrap {margin-left:auto}
 .setting_pop .content .inner > .top .btn_wrap .btn {display:inline-flex;width:auto;border-radius:50px}
@@ -878,6 +878,16 @@
 .setting_pop .admin_add .chk_wrap {min-height:44px}
 .setting_pop .admin_add .head {font-size:15px;padding:0 0 20px 0;border-bottom:0}
 .setting_pop .admin_add .head .btn_wrap {margin-left:auto}
+
+/* 길드 매니저 - 관리자설정 추가 팝업 */
+.guild_manager_add {width:600px}
+.guild_manager_add .add_list {max-height:40vh;border:solid 1px var(--gray-30);border-radius:4px;overflow-y:auto}
+.guild_manager_add .add_list .box > .tit {display:flex;align-items:center;height:48px;background:var(--gray-10);border-top:solid 1px var(--gray-30);border-bottom:solid 1px var(--gray-30);font-size:16px;font-weight:600;padding:0 16px}
+.guild_manager_add .add_list .item {display:flex;align-items:center;gap:0 20px;height:48px;padding:0 20px}
+.guild_manager_add .add_list .item + .item {margin-top:0;border-top:solid 1px var(--gray-20)}
+.guild_manager_add .add_list .item .tit {flex:150px 0 0;margin:0;position:relative}
+.guild_manager_add .add_list .item .tit label {font-size:15px}
+.guild_manager_add .add_list .item.all .chk_box input:checked ~ label::before {background-color:var(--primary-50)}
 
 .calendar {border:solid 1px var(--gray-30);border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,.04)}
 .calendar th {width:calc(100% / 7);height:50px;font-size:14px;font-weight:500;border-left:solid 1px var(--gray-30);border-right:solid 1px var(--gray-30)}
