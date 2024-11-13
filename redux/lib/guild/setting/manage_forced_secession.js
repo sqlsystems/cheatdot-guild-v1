@@ -20,7 +20,7 @@ export const getForcedSecession = () => async(dispatch, getState) => {
     await dispatch(setData(res.data));
 }
 
-export const JoinRefusalClear = (resetCheckedItems, chk) => async(dispatch, getState) => {
+export const JoinRefusalClear = (getList, resetCheckedItems, chk) => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;
 
     const chks = Object.keys(chk);
@@ -45,7 +45,7 @@ export const JoinRefusalClear = (resetCheckedItems, chk) => async(dispatch, getS
 
             dispatch(alert({ content: '재가입 가능한 멤버로 변경하였습니다.' }));
 
-            dispatch(getForcedSecession());
+            dispatch(getList());
 
             resetCheckedItems();
 

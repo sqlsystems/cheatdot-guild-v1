@@ -41,7 +41,7 @@ const ManageJoinRefusal = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems, checkedItems))}>가입불가 해제</button>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(getJoinRefusal, resetCheckedItems, checkedItems))}>가입불가 해제</button>
                         </div>
 
                         <SearchForm />

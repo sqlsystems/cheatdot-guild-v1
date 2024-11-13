@@ -2,6 +2,7 @@ import React, { memo, useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
 import { getForcedSecession, JoinRefusalClear } from '@redux/lib/guild/setting/manage_forced_secession';
+import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
 import { alert } from '@redux/modules/alert';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
@@ -38,6 +39,10 @@ const Index = () => {
         resetCheckedItems,
     } = useCheckboxList(memoizedList, ['idx', 'mb_id']);
 
+    useEffect(() => {
+        dispatch(setParams({ chk: checkedItems }));
+    }, [checkedItems]);
+
     const openPopup = () => {
         if (Object.keys(checkedItems).length < 1) {
             return dispatch(alert({ content: '선택된 강제탈퇴 멤버가 없습니다.' }));
@@ -54,7 +59,7 @@ const Index = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems, checkedItems))}>가입불가 해제</button>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(getForcedSecession, resetCheckedItems, checkedItems))}>가입불가 해제</button>
                             <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => openPopup()}>가입불가</button>
                         </div>
 
