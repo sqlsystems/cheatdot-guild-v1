@@ -1,6 +1,6 @@
 import React, { useState, memo, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { memberForceExit } from '@redux/lib/guild/setting/manage_whole_member';
+import { forceWithdrawal } from '@redux/lib/guild/setting/manage_whole_member';
 import Popup from 'components/public/Popup';
 import style from 'css/desktop.module.css';
 
@@ -60,7 +60,7 @@ const ForceLeave = ({ mb, setPopupData }) => {
 
                 <div className={style.btn_wrap}>
                     <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => setPopupData({})}>취소</button>
-                    <button type="button" className={[style.btn, style.btn_black].join(' ')} onClick={() => dispatch(memberForceExit({
+                    <button type="button" className={[style.btn, style.btn_black].join(' ')} onClick={() => dispatch(forceWithdrawal({
                         mb_id: mb.mb_id,
                         mb_nick: mb.mb_nick,
                         reason,

@@ -44,6 +44,8 @@ export const JoinRefusalClear = (resetCheckedItems) => async(dispatch, getState)
             if (res.data.error.msg)
                 return dispatch(alert({ content: res.data.error.msg }));
 
+            dispatch(alert({ content: '재가입 가능한 멤버로 변경하였습니다.' }));
+
             dispatch(getForcedSecession());
 
             resetCheckedItems();

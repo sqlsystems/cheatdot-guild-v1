@@ -1,8 +1,65 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getJoinRefusal } from '@redux/lib/guild/setting/manage_join_refusal';
+import { setParams } from '@redux/modules/guild/settings/manage_join_refusal';
+import useCheckboxList from 'hooks/useCheckboxList';
+import style from 'css/desktop.module.css';
+
+import ConfigTitle from '@guild/components/ConfigTitle';
+import SearchForm from '@guild/components/SearchForm';
+import List from './List';
 
 const ManageJoinRefusal = () => {
+    const dispatch = useDispatch();
+
+    const list = useSelector(state => state.settings.manage_join_refusal.list);
+    const page = useSelector(state => state.settings.manage_join_refusal.params.page);
+
+    useEffect(() => {
+        const fetchData = async() => {
+            await dispatch(getJoinRefusal());
+        }
+
+        fetchData();
+    }, [page]);
+
+    const memoizedList = useMemo(() => (list), [list]);
+
+    const {
+        selectAll,
+        checkedItems,
+        handleSelectAllChange,
+        handleItemChange,
+        resetCheckedItems,
+    } = useCheckboxList(memoizedList, 'mb_id');
+
+    useEffect(() => {
+        dispatch(setParams({ chk: checkedItems }));
+    }, [checkedItems]);
+
     return (
-        <h1>가입 불가 관리</h1>
+        <>
+            <ConfigTitle title="가입 불가 관리" />
+
+            <div className={[style.inner, style.scroll_custom].join(' ')}>
+                <div className={style.layout_box}>
+                    <div className={style.top_box}>
+                        <div className={style.btn_wrap}>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems))}>가입불가 해제</button>
+                        </div>
+
+                        <SearchForm />
+                    </div>
+
+                    <List
+                        selectAll={selectAll}
+                        checkedItems={checkedItems}
+                        handleSelectAllChange={handleSelectAllChange}
+                        handleItemChange={handleItemChange}
+                    />
+                </div>
+            </div>
+        </>
     );
 }
 

@@ -94,16 +94,16 @@ export const memberActivityStop = (e) => async(dispatch, getState) => {
     }));
 }
 
-export const memberForceExit = (e) => async(dispatch, getState) => {
+export const forceWithdrawal = (e) => async(dispatch, getState) => {
     const channel = getState().guild.res_data.guild_info.channel;
 
     dispatch(alert({
         content: `${e.mb_nick}님을 강제탈퇴 시키시겠습니까?`,
         type: 'confirm',
-        confirmText: '강제탈퇴',
+        confirmText: '확인',
         onConfirm: async() => {
             const res = await axios.post('/v4/guild/setting/member/api.php', {
-                cmd: 'member_force_exit',
+                cmd: 'force_withdrawal',
                 data: {
                     channel: channel,
                     params: e

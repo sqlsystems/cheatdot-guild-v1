@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
-import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
+import { setParams } from '@redux/modules/guild/settings/manage_join_refusal';
 import style from 'css/desktop.module.css';
 
 const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: false });
@@ -9,14 +9,14 @@ const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: f
 const List = (props) => {
     const dispatch = useDispatch();
 
-    const state = useSelector(state => state.settings.manage_forced_secession);
+    const state = useSelector(state => state.settings.manage_join_refusal);
 
     const params = state.params;
 
     return (
         <div className={style.table}>
             <table>
-                <caption>강제탈퇴 멤버 리스트</caption>
+                <caption>가입 불가 관리</caption>
                 <colgroup>
                     <col width={50} />
                     <col width={140} />
@@ -81,7 +81,7 @@ const List = (props) => {
                 })
                     :
                     <tr>
-                        <td colSpan={6} style={{ padding: '100px 0' }}>강제 탈퇴 멤버가 없습니다.</td>
+                        <td colSpan={6} style={{ padding: '100px 0' }}>가입 불가 멤버가 없습니다.</td>
                     </tr>
                 }
                 </tbody>

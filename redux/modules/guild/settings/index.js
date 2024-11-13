@@ -4,6 +4,7 @@ import manage_activity_stop_member from './manage_activity_stop_member';
 import manage_activity_stop_member_log from './manage_activity_stop_member_log';
 import manage_staff from './manage_staff';
 import manage_forced_secession from './manage_forced_secession';
+import manage_join_refusal from './manage_join_refusal';
 
 export default combineReducers({
     manage_whole_member,
@@ -11,4 +12,5 @@ export default combineReducers({
     manage_activity_stop_member_log,
     manage_staff,
     manage_forced_secession,
+    manage_join_refusal,
 });

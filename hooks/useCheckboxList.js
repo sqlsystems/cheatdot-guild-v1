@@ -4,30 +4,44 @@ const useCheckboxList = (items, keyField = 'idx') => {
     const [selectAll, setSelectAll] = useState(false);
     const [checkedItems, setCheckedItems] = useState({});
 
+    const generateKey = (item) => {
+        if (Array.isArray(keyField)) {
+            return keyField.map(field => item[field]).join('-');
+        }
+        return item[keyField];
+    };
+
     useEffect(() => {
+        // selectAll 상태에 따라 checkedItems 초기화
         const newCheckedItems = selectAll
-            ? items.reduce((acc, item) => ({ ...acc, [item[keyField]]: true }), {})
+            ? items.reduce((acc, item) => ({ ...acc, [generateKey(item)]: true }), {})
             : {};
 
         setCheckedItems(newCheckedItems);
-    }, [items, selectAll]); // selectAll을 의존성 배열에 추가
+    }, [items, selectAll]); // selectAll을 의존성에 추가하여 상태 변화에 반응
 
     const handleSelectAllChange = () => {
-        setSelectAll(prev => !prev); // 이전 상태 반전
+        // selectAll을 반전하고 그에 따라 checkedItems 초기화
+        const newSelectAll = !selectAll;
+        setSelectAll(newSelectAll);
+
+        const newCheckedItems = newSelectAll
+            ? items.reduce((acc, item) => ({ ...acc, [generateKey(item)]: true }), {})
+            : {};
+
+        setCheckedItems(newCheckedItems);
     };
 
     const handleItemChange = (key) => {
         setCheckedItems(prevState => {
             const newCheckedItems = { ...prevState };
-
             if (newCheckedItems[key]) {
-                // 체크 해제 시 해당 키를 삭제
                 delete newCheckedItems[key];
             } else {
-                // 체크 시 해당 키를 true로 설정
                 newCheckedItems[key] = true;
             }
 
+            setSelectAll(Object.keys(newCheckedItems).length === items.length && Object.values(newCheckedItems).every(Boolean));
             return newCheckedItems;
         });
     };
