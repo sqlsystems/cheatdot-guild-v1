@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import DeskTopGuild from 'components/desktop/guild';
+import Main from 'components/desktop/guild/Main';
 
 const Channel = () => {
     const error = useSelector(state => state.guild.res_data.error);
@@ -13,7 +14,7 @@ const Channel = () => {
 
         return (
             <DeskTopGuild>
-                <h1>1</h1>
+                <Main />
             </DeskTopGuild>
         );
     }
