@@ -23,7 +23,6 @@ const List = (props) => {
                     <col />
                     <col width={110} />
                     <col width={160} />
-                    <col width={100} />
                 </colgroup>
                 <thead>
                 <tr>
@@ -42,7 +41,6 @@ const List = (props) => {
                     <th>사유</th>
                     <th>처리일</th>
                     <th>처리자</th>
-                    <th>가입불가 여부</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,9 +70,6 @@ const List = (props) => {
                             <td className={style.left}>
                                 <span className={style.nick}>{c.manager_nick}</span>
                                 <span>({c.manager_id})</span>
-                            </td>
-                            <td>
-                                <span className={!c.is_re_join ? style.red : null}>{!c.is_re_join ? '가입불가' : '-'}</span>
                             </td>
                         </tr>
                     );

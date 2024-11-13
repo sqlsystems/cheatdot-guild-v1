@@ -2,7 +2,6 @@ import React, { memo, useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
 import { getForcedSecession, JoinRefusalClear } from '@redux/lib/guild/setting/manage_forced_secession';
-import { setParams } from '@redux/modules/guild/settings/manage_forced_secession';
 import { alert } from '@redux/modules/alert';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
@@ -11,7 +10,7 @@ import ConfigTitle from '@guild/components/ConfigTitle';
 import SearchForm from '@guild/components/SearchForm';
 import List from './List';
 
-const ForceWithdrawal = dynamic(() => import('../ManageWholeMember/ForceLeave'), { ssr: false });
+const JoinRefusalAddModal = dynamic(() => import('./JoinRefusalAddModal'), { ssr: false });
 
 const Index = () => {
     const dispatch = useDispatch();
@@ -39,17 +38,9 @@ const Index = () => {
         resetCheckedItems,
     } = useCheckboxList(memoizedList, ['idx', 'mb_id']);
 
-    useEffect(() => {
-        dispatch(setParams({ chk: checkedItems }));
-    }, [checkedItems]);
-
     const openPopup = () => {
         if (Object.keys(checkedItems).length < 1) {
             return dispatch(alert({ content: '선택된 강제탈퇴 멤버가 없습니다.' }));
-        }
-
-        if (Object.keys(checkedItems).length > 1) {
-            return dispatch(alert({ content: '가입 불가는 한명씩만 할 수 있습니다.' }));
         }
 
         setPopup(true);
@@ -63,7 +54,7 @@ const Index = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems))}>가입불가 해제</button>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems, checkedItems))}>가입불가 해제</button>
                             <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => openPopup()}>가입불가</button>
                         </div>
 
@@ -79,7 +70,7 @@ const Index = () => {
                 </div>
             </div>
 
-            {popup && <ForceWithdrawal mb={{ mb_id: Object.keys(checkedItems)[0].split('-')[1] }} setPopupData={() => setPopup(false)} />}
+            {popup && <JoinRefusalAddModal setPopupData={() => setPopup(false)} resetCheckedItems={resetCheckedItems} />}
         </>
     );
 }

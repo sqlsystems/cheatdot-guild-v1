@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getJoinRefusal } from '@redux/lib/guild/setting/manage_join_refusal';
-import { setParams } from '@redux/modules/guild/settings/manage_join_refusal';
+import { JoinRefusalClear } from '@redux/lib/guild/setting/manage_forced_secession';
 import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
@@ -31,11 +31,7 @@ const ManageJoinRefusal = () => {
         handleSelectAllChange,
         handleItemChange,
         resetCheckedItems,
-    } = useCheckboxList(memoizedList, 'mb_id');
-
-    useEffect(() => {
-        dispatch(setParams({ chk: checkedItems }));
-    }, [checkedItems]);
+    } = useCheckboxList(memoizedList, ['idx', 'mb_id']);
 
     return (
         <>
@@ -45,7 +41,7 @@ const ManageJoinRefusal = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems))}>가입불가 해제</button>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(JoinRefusalClear(resetCheckedItems, checkedItems))}>가입불가 해제</button>
                         </div>
 
                         <SearchForm />
