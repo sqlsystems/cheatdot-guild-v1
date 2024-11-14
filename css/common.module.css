@@ -28,7 +28,7 @@
 .red {color:var(--red-dark)}
 .black {color:var(--gray-99)}
 
-.lv_icon {width:24px;height:24px;background:url('../public/img/level/v2/lv_bg.svg') no-repeat center/100%;position:relative}
+.lv_icon {width:24px;height:24px;position:relative}
 .lv_icon img {width:100%;height:100%;position:absolute;top:0;left:0;z-index:1}
 
 .chk_wrap {display:flex;align-items:center;gap:0 14px}

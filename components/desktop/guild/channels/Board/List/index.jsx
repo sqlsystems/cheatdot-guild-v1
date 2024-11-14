@@ -38,7 +38,7 @@ const List = () => {
                     </div>
                 </div>
 
-                <Link href={`/guild/${queryString.channel}/${queryString.channel_id}/write`} className={[style.btn, style.btn_primary].join(' ')}>
+                <Link href={`/${queryString.channel}/${queryString.channel_id}/write`} className={[style.btn, style.btn_primary].join(' ')}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14">
                         <g id="edit-pen-write-svgrepo-com" transform="translate(-4 -1.879)">
                             <path id="패스_5" data-name="패스 5"

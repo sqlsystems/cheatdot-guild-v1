@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 import style from 'css/desktop.module.css';
 
-import {useSelector} from "react-redux";
+import UserProfile from 'components/public/UserProfile';
 
 const ListItem = ({ data }) => {
     const queryString = useSelector(state => state.query_string);
@@ -18,7 +19,7 @@ const ListItem = ({ data }) => {
                 </div>
             </td>
             <td className={style.left}>
-                {data.mb_nick}
+                <UserProfile mb_nick={data.mb_nick} mb_level={1} />
             </td>
             <td>
                 <span>{data.date}</span>
