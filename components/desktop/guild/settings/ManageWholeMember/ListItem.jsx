@@ -1,6 +1,8 @@
 import React, { memo, useRef } from 'react';
 import style from 'css/desktop.module.css';
 
+import UserProfile from 'components/public/UserProfile';
+
 const ListItem = ({ item, _btnRef, setBtnRef, setPopupData, changeMemberLevel, setMemberAttendStatus }) => {
     const btnRef = useRef(null);
 
@@ -10,12 +12,7 @@ const ListItem = ({ item, _btnRef, setBtnRef, setPopupData, changeMemberLevel, s
                 <span>{item.idx}</span>
             </td>
             <td className={style.left}>
-                <div className={style.profile}>
-                    <div className={style.profile_box}>
-                        <span className={style.nick}>{item.mb_nick}</span>
-                        <span>({item.mb_id})</span>
-                    </div>
-                </div>
+                <UserProfile mb_id={item.mb_id} mb_nick={item.mb_nick} mb_level={item.level} />
             </td>
             <td className={style.right}>
                 <span className={style.red}>{item.attend_price}</span>
@@ -33,9 +30,9 @@ const ListItem = ({ item, _btnRef, setBtnRef, setPopupData, changeMemberLevel, s
             <td>
                 <div className={style.select_box}>
                     {item.attend_status &&
-                        <select style={{ backgroundColor: 'var(--gray-10)' }} onChange={e => changeMemberLevel({ mb_id: item.mb_id, mb_nick: item.mb_nick, changed_level: e.target.value })}>
-                            {[...Array(9)].map((_, index) => {
-                                return <option key={index} value={index+2}>{index+2}</option>;
+                        <select value={item.level} style={{ backgroundColor: 'var(--gray-10)' }} onChange={e => changeMemberLevel({ mb_id: item.mb_id, mb_nick: item.mb_nick, changed_level: e.target.value })}>
+                            {[...Array(10)].map((_, index) => {
+                                return <option key={index} value={index+1}>{index+1}</option>;
                             })}
                         </select>
                     }

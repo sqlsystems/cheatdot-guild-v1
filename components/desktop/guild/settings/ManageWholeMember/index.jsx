@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMemberList } from '@redux/lib/guild/setting/manage_whole_member';
+import { getWholeMember } from '@redux/lib/guild/setting/manage_whole_member';
 import { setParams } from '@redux/modules/guild/settings/manage_whole_member';
 import style from 'css/desktop.module.css';
 
@@ -19,7 +19,7 @@ const MemberList = () => {
 
     useEffect(() => {
         const res = async() => {
-            await dispatch(getMemberList());
+            await dispatch(getWholeMember());
 
             if (innerRef.current) {
                 innerRef.current.scrollTop = 0;

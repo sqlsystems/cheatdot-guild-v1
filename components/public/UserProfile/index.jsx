@@ -30,8 +30,8 @@ const UserProfile = (props) => {
                 props.children
                 :
                 <>
-                    <div className={style.lv_icon}>
-                        <img src={`/img/level/v1/${props.mb_level}.svg`} width={18} height={18} alt="회원계급"/>
+                    <div>
+                        <img src={`/img/level/v1/${props.mb_level}.svg`} alt="레벨 아이콘" />
                     </div>
                     <span className={style.nick}>{props.mb_nick}</span>
                 </>

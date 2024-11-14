@@ -2,12 +2,12 @@ import axios from 'axios';
 import { alert } from '@redux/modules/alert';
 import { setData } from '@redux/modules/guild/settings/manage_whole_member';
 
-export const getMemberList = () => async(dispatch, getState) => {
+export const getWholeMember = () => async(dispatch, getState) => {
     const channel = getState().query_string.channel;
     const params = getState().settings.manage_whole_member.params;
 
     const res = await axios.post('/v4/guild/setting/member/api.php', {
-        cmd: 'get_member_list',
+        cmd: 'get_whole_member',
         data: {
             channel: channel,
             params: params
@@ -39,6 +39,8 @@ export const changeMemberLevel = (e) => async(dispatch, getState) => {
             if (res.data.error.msg)
                 return dispatch(alert({ content: res.data.error.msg }));
 
+            dispatch(getWholeMember());
+
             return true;
         }
     }));
@@ -62,6 +64,8 @@ export const setMemberAttendStatus = (e) => async(dispatch, getState) => {
 
             if (res.data.error.msg)
                 return dispatch(alert({ content: res.data.error.msg }));
+
+            dispatch(getWholeMember());
 
             return true;
         }
@@ -89,6 +93,8 @@ export const memberActivityStop = (e) => async(dispatch, getState) => {
 
             e.setPopupData({});
 
+            dispatch(getWholeMember());
+
             return true;
         }
     }));
@@ -115,7 +121,7 @@ export const forceWithdrawal = (e) => async(dispatch, getState) => {
 
             e.setPopupData({});
 
-            dispatch(getMemberList());
+            dispatch(getWholeMember());
 
             return true;
         }
