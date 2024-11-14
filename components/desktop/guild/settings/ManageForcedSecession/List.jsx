@@ -48,7 +48,7 @@ const List = (props) => {
                 <tbody>
                 {state.list.length > 0 ? state.list.map(c => {
                     return (
-                        <tr key={c.idx}>
+                        <tr key={c.idx} className={props.checkedItems[`${c.idx}-${c.mb_id}`] ? style.check : null}>
                             <td>
                                 <div className={style.chk_box}>
                                     <input
