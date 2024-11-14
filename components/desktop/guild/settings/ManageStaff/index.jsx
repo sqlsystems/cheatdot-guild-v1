@@ -14,7 +14,7 @@ const AddStaffPopup = dynamic(() => import('./AddStaffPopup'), { ssr: false });
 const StaffManage = () => {
     const dispatch = useDispatch();
 
-    const isAddAuthPopup = useSelector(state => state.settings.manage_staff.is_add_auth_popup);
+    const addAuthPopup = useSelector(state => state.settings.manage_staff.add_auth_popup);
 
     useEffect(() => {
         const res = async() => {
@@ -40,19 +40,19 @@ const StaffManage = () => {
                         <SearchForm />
                     </div>
 
-                    <List />
+                    <List addAuthPopup={e => dispatch(setAddAuthPopup({ is: true, data: e }))} />
                 </div>
 
                 <div className={style.admin_add}>
                     <div className={style.head}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_primary].join(' ')} onClick={() => dispatch(setAddAuthPopup(true))}>권한 추가</button>
+                            <button type="button" className={[style.btn, style.btn_primary].join(' ')} onClick={() => dispatch(setAddAuthPopup({ is: true }))}>권한 추가</button>
                         </div>
                     </div>
                 </div>
 
-                {isAddAuthPopup &&
-                    <AddStaffPopup onClose={() => dispatch(setAddAuthPopup(false))} />
+                {addAuthPopup.is &&
+                    <AddStaffPopup data={addAuthPopup.data} onClose={() => dispatch(setAddAuthPopup({ is: false, data: null }))} />
                 }
             </div>
         </>

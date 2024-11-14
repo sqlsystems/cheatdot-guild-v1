@@ -15,7 +15,10 @@ const initialState = {
         sfl: 'mb_id',
         stx: '',
     },
-    is_add_auth_popup: false
+    add_auth_popup: {
+        is: false,
+        data: null
+    }
 };
 
 export default handleActions({
@@ -37,7 +40,7 @@ export default handleActions({
     [SET_ADD_AUTH_POPUP]: (state, { payload }) => {
         return {
             ...state,
-            is_add_auth_popup: payload
+            add_auth_popup: payload
         }
     }
 }, initialState);

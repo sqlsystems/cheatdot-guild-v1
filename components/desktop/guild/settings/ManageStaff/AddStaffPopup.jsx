@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateAdminPermissions } from '@redux/lib/guild/setting/manage_staff';
 import menus from 'dist/guild_admin_menus.json';
@@ -9,8 +9,14 @@ import Popup from 'components/public/Popup';
 const AddStaffPopup = (props) => {
     const dispatch = useDispatch();
 
-    const [mbId, setMbId] = useState('');
+    const [mbId, setMbId] = useState((props.data && props.data.auth) ? props.data.mb_id : '');
     const [menuObject, setMenuObject] = useState({});
+
+    useEffect(() => {
+        if (props.data && props.data.auth) {
+            setMenuObject(props.data.auth);
+        }
+    }, [props.data]);
 
     const changeMenuObject = (isChecked, code) => {
         setMenuObject((prevState) => {
@@ -65,7 +71,7 @@ const AddStaffPopup = (props) => {
                         <span>회원아이디</span>
                     </div>
                     <div className={style.input_box}>
-                        <input type="text" value={mbId} onChange={e => setMbId(e.target.value)} placeholder="아이디" />
+                        <input type="text" value={mbId} onChange={e => setMbId(e.target.value)} placeholder="아이디" disabled={(props.data && props.data.auth)} />
                     </div>
                 </div>
 

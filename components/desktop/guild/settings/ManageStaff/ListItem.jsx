@@ -31,7 +31,7 @@ const ListItem = (props) => {
                     {props._btnRef === btnRef &&
                         <div className={style.pop_layer}>
                             <ul>
-                                <li><button type="button">권한 수정</button></li>
+                                <li><button type="button" onClick={() => props.addAuthPopup({ mb_id: c.mb_id, auth: c.auth })}>권한 수정</button></li>
                             </ul>
                         </div>
                     }

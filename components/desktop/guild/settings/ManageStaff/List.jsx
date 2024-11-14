@@ -9,7 +9,7 @@ import ListItem from './ListItem';
 
 const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: false });
 
-const List = () => {
+const List = ({ addAuthPopup }) => {
     const dispatch = useDispatch();
 
     const state = useSelector(state => state.settings.manage_staff);
@@ -43,6 +43,7 @@ const List = () => {
                         data={c}
                         _btnRef={btnRef}
                         setBtnRef={e => e === btnRef ? setBtnRef(null) : setBtnRef(e)}
+                        addAuthPopup={e => addAuthPopup(e)}
                     />;
                 })
                     :
