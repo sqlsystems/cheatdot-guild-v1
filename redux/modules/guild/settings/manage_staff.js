@@ -1,10 +1,12 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SET_DATA = 'guild/settings/staff_manage/SET_DATA';
-const SET_PARAMS = 'guild/settings/staff_manage/SET_PARAMS';
+const SET_DATA = 'guild/settings/manage_staff/SET_DATA';
+const SET_PARAMS = 'guild/settings/manage_staff/SET_PARAMS';
+const SET_ADD_AUTH_POPUP = 'guild/settings/manage_staff/SET_ADD_AUTH_POPUP';
 
 export const setData = createAction(SET_DATA);
 export const setParams = createAction(SET_PARAMS);
+export const setAddAuthPopup = createAction(SET_ADD_AUTH_POPUP);
 
 const initialState = {
     list: [],
@@ -12,7 +14,8 @@ const initialState = {
         page: 1,
         sfl: 'mb_id',
         stx: '',
-    }
+    },
+    is_add_auth_popup: false
 };
 
 export default handleActions({
@@ -29,6 +32,12 @@ export default handleActions({
                 ...state.params,
                 ...action.payload
             }
+        }
+    },
+    [SET_ADD_AUTH_POPUP]: (state, { payload }) => {
+        return {
+            ...state,
+            is_add_auth_popup: payload
         }
     }
 }, initialState);

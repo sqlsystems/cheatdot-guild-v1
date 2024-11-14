@@ -5,10 +5,25 @@ const Popup = (props) => {
     const [isClosing, setIsClosing] = useState(false);
 
     useEffect(() => {
+        document.body.classList.add('popup');
         document.body.style.overflowY = 'hidden';
 
+        const detectKeyPress = (e) => {
+            if (e.key === 'Escape') {
+                handleClose();
+            }
+        }
+
+        document.addEventListener('keydown', detectKeyPress);
+
         return () => {
-            document.body.style.overflowY = '';
+            document.body.classList.remove('popup');
+
+            if (!document.body.classList.contains('setting')) {
+                document.body.style.overflowY = '';
+            }
+
+            document.removeEventListener('keydown', detectKeyPress);
         }
     }, []);
 
@@ -25,7 +40,7 @@ const Popup = (props) => {
             <div className={[style.popup_background, backgroundClass].join(' ')} onClick={handleClose} />
 
             <div className={style.popup}>
-                <div className={[style.inner, alertWindowClass].join(' ')}>
+                <div className={[style.inner, alertWindowClass, props.className].join(' ')}>
                     {props.children}
                 </div>
             </div>

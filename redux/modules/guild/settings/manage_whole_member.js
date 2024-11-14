@@ -1,7 +1,7 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SET_DATA = 'guild/settings/member/SET_DATA';
-const SET_PARAMS = 'guild/settings/member/SET_PARAMS';
+const SET_DATA = 'guild/settings/manage_whole_member/SET_DATA';
+const SET_PARAMS = 'guild/settings/manage_whole_member/SET_PARAMS';
 
 export const setData = createAction(SET_DATA);
 export const setParams = createAction(SET_PARAMS);

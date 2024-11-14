@@ -881,7 +881,7 @@
 
 /* 길드 매니저 - 관리자설정 추가 팝업 */
 .guild_manager_add {width:600px}
-.guild_manager_add .add_list {max-height:40vh;border:solid 1px var(--gray-30);border-radius:4px;overflow-y:auto}
+.guild_manager_add .add_list {max-height:60vh;border:solid 1px var(--gray-30);border-radius:4px;overflow-y:auto}
 .guild_manager_add .add_list .box > .tit {display:flex;align-items:center;height:48px;background:var(--gray-10);border-top:solid 1px var(--gray-30);border-bottom:solid 1px var(--gray-30);font-size:16px;font-weight:600;padding:0 16px}
 .guild_manager_add .add_list .item {display:flex;align-items:center;gap:0 20px;height:48px;padding:0 20px}
 .guild_manager_add .add_list .item + .item {margin-top:0;border-top:solid 1px var(--gray-20)}

@@ -6,7 +6,7 @@ const useSettingPage = (onClose) => {
         document.body.style.overflowY = 'hidden';
 
         const handleKeyDown = (event) => {
-            if (event.key === 'Escape' && !document.body.classList.contains('alert')) {
+            if (event.key === 'Escape' && !document.body.classList.contains('alert') && !document.body.classList.contains('popup')) {
                 onClose({});
             }
         };
