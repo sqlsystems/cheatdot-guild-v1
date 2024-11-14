@@ -3,7 +3,7 @@ import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
 
-const ManageCostInfo = () => {
+const ManageSettlementInformation = () => {
     return (
         <>
             <ConfigTitle title="정산 정보" />
@@ -98,4 +98,4 @@ const ManageCostInfo = () => {
     );
 }
 
-export default memo(ManageCostInfo);
+export default memo(ManageSettlementInformation);

@@ -6,14 +6,14 @@ import style from 'css/desktop.module.css';
 
 import Menu from './Menu';
 
-const Default = dynamic(() => import('./ManageBaseInformation'), { ssr: false });
-const MemberList = dynamic(() => import('./ManageWholeMember'), { ssr: false });
+const ManageBaseInformation = dynamic(() => import('./ManageBaseInformation'), { ssr: false });
+const ManageWholeMember = dynamic(() => import('./ManageWholeMember'), { ssr: false });
 const StaffManage = dynamic(() => import('./ManageStaff'), { ssr: false });
-const ActivityStopManage = dynamic(() => import('./ManageActivityStopMember'), { ssr: false });
-const ActivityStopLog = dynamic(() => import('./ManageActivityStopMemberLog'), { ssr: false });
-const ForceExitManage = dynamic(() => import('./ManageForcedSecession'), { ssr: false });
+const ManageActivityStopMember = dynamic(() => import('./ManageActivityStopMember'), { ssr: false });
+const ManageActivityStopMemberLog = dynamic(() => import('./ManageActivityStopMemberLog'), { ssr: false });
+const ManageForcedSecession = dynamic(() => import('./ManageForcedSecession'), { ssr: false });
 const ManageJoinRefusal = dynamic(() => import('./ManageJoinRefusal'), { ssr: false });
-const CostInfo = dynamic(() => import('./ManageCostInfo'), { ssr: false });
+const ManageSettlementInformation = dynamic(() => import('./ManageSettlementInformation'), { ssr: false });
 const CostList = dynamic(() => import('./SettlementView'), { ssr: false });
 const ProductBuyHistory = dynamic(() => import('./ViewProductBuyHistory'), { ssr: false });
 const AuditLog = dynamic(() => import('./AuditLogView'), { ssr: false });
@@ -27,21 +27,21 @@ const GuildSetting = ({ onClose }) => {
     const renderSettingPage = useMemo(() => {
         switch (menuType) {
             case 100000:
-                return <Default />;
+                return <ManageBaseInformation />;
             case 200000:
-                return <MemberList />;
+                return <ManageWholeMember />;
             case 200100:
                 return <StaffManage />;
             case 200200:
-                return <ActivityStopManage />;
+                return <ManageActivityStopMember />;
             case 200300:
-                return <ActivityStopLog />;
+                return <ManageActivityStopMemberLog />;
             case 200400:
-                return <ForceExitManage />;
+                return <ManageForcedSecession />;
             case 200500:
                 return <ManageJoinRefusal />;
             case 300000:
-                return <CostInfo />;
+                return <ManageSettlementInformation />;
             case 300100:
                 return <CostList />;
             case 300200:
