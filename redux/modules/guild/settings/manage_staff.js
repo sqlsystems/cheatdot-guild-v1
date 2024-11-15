@@ -14,6 +14,7 @@ const initialState = {
         page: 1,
         sfl: 'mb_id',
         stx: '',
+        chk: [],
     },
     add_auth_popup: {
         is: false,

@@ -9,7 +9,7 @@ import ListItem from './ListItem';
 
 const Paging = dynamic(() => import('components/public/DynamicPaging'), { ssr: false });
 
-const List = ({ addAuthPopup }) => {
+const List = (props) => {
     const dispatch = useDispatch();
 
     const state = useSelector(state => state.settings.manage_staff);
@@ -31,21 +31,30 @@ const List = ({ addAuthPopup }) => {
                 </colgroup>
                 <thead>
                 <tr>
-                    <th>선택</th>
+                    <th>
+                        <div className={style.chk_box}>
+                            <input type="checkbox" checked={props.selectAll} onChange={props.handleSelectAllChange} id="select_all" />
+                            <label htmlFor="select_all" />
+                        </div>
+                    </th>
                     <th>아이디</th>
                     <th>옵션</th>
                 </tr>
                 </thead>
                 <tbody>
                 {state.list.length > 0 ? state.list.map(c => {
-                    return <ListItem
-                        key={c.mb_id}
-                        data={c}
-                        _btnRef={btnRef}
-                        setBtnRef={e => e === btnRef ? setBtnRef(null) : setBtnRef(e)}
-                        addAuthPopup={e => addAuthPopup(e)}
-                    />;
-                })
+                      return <ListItem
+                          key={c.mb_id}
+                          data={c}
+                          _btnRef={btnRef}
+                          setBtnRef={e => e === btnRef ? setBtnRef(null) : setBtnRef(e)}
+                          addAuthPopup={e => props.addAuthPopup(e)}
+                          selectAll={props.selectAll}
+                          checkedItems={props.checkedItems}
+                          handleSelectAllChange={props.handleSelectAllChange}
+                          handleItemChange={props.handleItemChange}
+                      />;
+                  })
                     :
                     <tr>
                         <td colSpan={3}>

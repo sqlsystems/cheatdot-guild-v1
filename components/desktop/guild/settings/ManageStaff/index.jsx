@@ -1,8 +1,9 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStaffList } from '@redux/lib/guild/setting/manage_staff';
-import { setAddAuthPopup } from '@redux/modules/guild/settings/manage_staff';
+import { setParams, setAddAuthPopup } from '@redux/modules/guild/settings/manage_staff';
+import { getStaffList, deleteAdminPermissions } from '@redux/lib/guild/setting/manage_staff';
+import useCheckboxList from 'hooks/useCheckboxList';
 import style from 'css/desktop.module.css';
 
 import ConfigTitle from '@guild/components/ConfigTitle';
@@ -14,6 +15,7 @@ const AddStaffPopup = dynamic(() => import('./AddStaffPopup'), { ssr: false });
 const StaffManage = () => {
     const dispatch = useDispatch();
 
+    const list = useSelector(state => state.settings.manage_staff).list;
     const addAuthPopup = useSelector(state => state.settings.manage_staff.add_auth_popup);
 
     useEffect(() => {
@@ -23,6 +25,20 @@ const StaffManage = () => {
 
         res();
     }, []);
+
+    const memoizedList = useMemo(() => (list), [list]);
+
+    const {
+        selectAll,
+        checkedItems,
+        handleSelectAllChange,
+        handleItemChange,
+        resetCheckedItems,
+    } = useCheckboxList(memoizedList, 'mb_id');
+
+    useEffect(() => {
+        dispatch(setParams({ chk: checkedItems }));
+    }, [checkedItems]);
 
     return (
         <>
@@ -34,13 +50,19 @@ const StaffManage = () => {
                 <div className={style.layout_box}>
                     <div className={style.top_box}>
                         <div className={style.btn_wrap}>
-                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')}>선택 삭제</button>
+                            <button type="button" className={[style.btn, style.btn_gray_line].join(' ')} onClick={() => dispatch(deleteAdminPermissions(resetCheckedItems))}>선택 삭제</button>
                         </div>
 
                         <SearchForm />
                     </div>
 
-                    <List addAuthPopup={e => dispatch(setAddAuthPopup({ is: true, data: e }))} />
+                    <List
+                        selectAll={selectAll}
+                        checkedItems={checkedItems}
+                        handleSelectAllChange={handleSelectAllChange}
+                        handleItemChange={handleItemChange}
+                        addAuthPopup={e => dispatch(setAddAuthPopup({ is: true, data: e }))}
+                    />
                 </div>
 
                 <div className={style.admin_add}>

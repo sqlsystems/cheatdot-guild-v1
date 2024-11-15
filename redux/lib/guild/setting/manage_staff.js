@@ -39,3 +39,36 @@ export const updateAdminPermissions = (e) => async(dispatch, getState) => {
 
     await dispatch(getStaffList());
 }
+
+export const deleteAdminPermissions = (resetCheckedItems) => async(dispatch, getState) => {
+    const channel = getState().query_string.channel;
+    const chk = getState().settings.manage_staff.params.chk;
+
+    const chks = Object.keys(chk);
+    if (chks.length < 1)
+        return dispatch(alert({ content: '선택된 멤버가 없습니다.' }));
+
+    dispatch(alert({
+        content: `권한을 삭제하시겠습니까?`,
+        type: 'confirm',
+        confirmText: '확인',
+        onConfirm: async() => {
+            const res = await axios.post('/v4/guild/setting/member/api.php', {
+                cmd: 'delete_admin_permissions',
+                data: {
+                    channel: channel,
+                    params: chks
+                }
+            });
+
+            if (res.data.error.msg)
+                return dispatch(alert({ content: res.data.error.msg }));
+
+            dispatch(getStaffList());
+
+            resetCheckedItems();
+
+            return true;
+        }
+    }));
+}

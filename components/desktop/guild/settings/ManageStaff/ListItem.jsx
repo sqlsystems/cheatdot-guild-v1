@@ -7,10 +7,13 @@ const ListItem = (props) => {
     const c = props.data;
 
     return (
-        <tr>
+        <tr className={props.checkedItems[c.mb_id] ? style.check : null}>
             <td>
                 <div className={style.chk_box}>
-                    <input type="checkbox" id="chk_01" checked={true} /> <label htmlFor="chk_01" />
+                    <div className={style.chk_box}>
+                        <input type="checkbox" checked={!!props.checkedItems[c.mb_id]} onChange={() => props.handleItemChange(c.mb_id)} id={c.mb_id} />
+                        <label htmlFor={c.mb_id} />
+                    </div>
                 </div>
             </td>
             <td className={style.left}>
